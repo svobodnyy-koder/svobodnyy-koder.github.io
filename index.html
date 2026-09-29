@@ -1,400 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicoLúdico: O Jogo das Placas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#e9f0e9;
-    --paper:#fbfbf4;
-    --ink:#1c2b24;
-    --ink-dim:#54685d;
-    --teal:#1f7f72;
-    --teal-deep:#145f56;
-    --coral:#d6512f;
-    --gold:#c8932a;
-    --agar:#f4efdb;
-    --line:rgba(28,43,36,0.12);
-    --radius:20px;
-    --display:"Fraunces", serif;
-    --body:"Space Grotesk", sans-serif;
-    --mono:"IBM Plex Mono", monospace;
-  }
-  *{box-sizing:border-box;}
-  html,body{height:100%;}
-  body{
-    margin:0;
-    background:var(--bg);
-    background-image:
-      radial-gradient(circle at 12% 8%, rgba(31,127,114,0.10), transparent 45%),
-      radial-gradient(circle at 88% 92%, rgba(200,147,42,0.12), transparent 45%);
-    color:var(--ink);
-    font-family:var(--body);
-    display:flex;flex-direction:column;
-    min-height:100vh;
-  }
-  ::selection{background:var(--teal);color:var(--paper);}
-  a{color:var(--teal-deep);}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071d28" />
+    <title>Neurodeck · estudo ativo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark"><span></span><span></span><span></span></div>
+          <div><strong>neurodeck</strong><small>anatomia ativa</small></div>
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">×</button>
+        </div>
+        <div class="profile-card">
+          <div class="avatar">ND</div>
+          <div><strong>Modo visitante</strong><small>estudo local</small></div>
+          <span class="status-dot"></span>
+        </div>
+        <nav class="nav-list" aria-label="Navegação principal">
+          <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span> Visão geral</button>
+          <button class="nav-item" data-view="practice"><span class="nav-icon">✦</span> Treino rápido <b>115</b></button>
+          <button class="nav-item" data-view="atlas"><span class="nav-icon">◌</span> Atlas visual</button>
+          <button class="nav-item" data-view="topics"><span class="nav-icon">▦</span> Tópicos</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="streak-card"><span class="flame">✦</span><div><strong>49 pranchas</strong><small>no atlas visual</small></div><span class="spark">↗</span></div>
+          <button class="settings" id="themeToggle"><span>◒</span> Modo de foco <i></i></button>
+        </div>
+      </aside>
+      <div class="sidebar-scrim" id="sidebarScrim" aria-hidden="true"></div>
 
-  .credit-strip{
-    text-align:center;padding:.6rem 1rem;
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
-    background:var(--ink);color:var(--agar);
-  }
-  .credit-strip b{color:#fff;font-weight:600;}
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+          <div class="breadcrumb"><span>Neuroanatomia</span><b>/</b><strong id="breadcrumbCurrent">Visão geral</strong></div>
+          <div class="top-actions"><button class="icon-button" title="Buscar">⌕</button><button class="icon-button" title="Notificações">◔<em></em></button><div class="mini-avatar">ND</div></div>
+        </header>
 
-  main.stage{
-    flex:1;display:flex;flex-direction:column;align-items:center;
-    padding:2.2rem 1.25rem 1rem;
-  }
+        <section class="view active-view" id="overviewView">
+          <div class="hero-row">
+            <div>
+              <div class="eyebrow"><span></span> MATERIAL DE REVISÃO · 49 PRANCHAS</div>
+              <h1>Seu cérebro<br /><em>em foco.</em></h1>
+              <p class="hero-copy">Aprenda neuroanatomia por reconhecimento, repetição e contexto — uma estrutura de cada vez.</p>
+              <div class="hero-actions"><button class="primary-button" data-view="practice">Continuar treino <span>→</span></button><button class="ghost-button" data-view="atlas">Explorar atlas <span>↗</span></button></div>
+            </div>
+            <div class="hero-art" aria-label="Ilustração do sistema nervoso central">
+              <div class="orbital orbital-a"></div><div class="orbital orbital-b"></div><div class="brain-glow"></div><img src="assets/page-01.jpg" alt="Diagrama do sistema nervoso central" /><div class="art-tag tag-one">CÓRTEX</div><div class="art-tag tag-two">TRONCO</div><div class="art-label"><span>01</span><small>sistema nervoso<br />central</small></div>
+            </div>
+          </div>
+          <div class="section-heading"><div><span class="section-kicker">CONTEÚDO DISPONÍVEL NO PDF</span><h2>PDF transformado em treino</h2></div><button class="text-button" data-view="topics">Ver todos os tópicos <span>→</span></button></div>
+          <div class="stats-grid">
+            <article class="stat-card progress-card"><div class="stat-top"><span class="icon-badge coral">◒</span><span class="muted-label">ARQUIVO-BASE</span></div><div class="stat-value">49</div><strong>pranchas visuais</strong><div class="meter"><i style="width:100%"></i></div><small class="stat-note">Todas as páginas estão no atlas</small></article>
+            <article class="stat-card"><div class="stat-top"><span class="icon-badge blue">✦</span><span class="muted-label">BANCO DE TREINO</span></div><div class="stat-value">115</div><strong>questões disponíveis</strong><div class="mini-bars"><i style="height:48%"></i><i style="height:72%"></i><i style="height:100%"></i></div><small class="stat-note">fácil · médio · difícil</small></article>
+            <article class="stat-card warm-card"><div class="stat-top"><span class="icon-badge yellow">♨</span><span class="muted-label">ORGANIZAÇÃO</span></div><div class="stat-value">10</div><strong>blocos temáticos</strong><div class="week-dots"><i class="done">C</i><i class="done">O</i><i class="done">M</i><i class="done">P</i><i class="done">L</i></div><small class="stat-note">crânio · coluna · SNC · vasos</small></article>
+          </div>
+          <div class="lower-grid"><article class="continue-card"><div class="card-heading"><div><span class="section-kicker">BLOCO EM DESTAQUE</span><h3>Tronco encefálico</h3></div><span class="completion">P. 28–30</span></div><div class="lesson-line"><div class="lesson-thumb"><img src="assets/page-30.jpg" alt="Diagrama do cerebelo" /><span>▶</span></div><div class="lesson-info"><strong>Reconhecendo o cerebelo</strong><small>Páginas 28–30 · mesencéfalo e cerebelo</small></div><button class="round-arrow" data-view="practice">→</button></div></article><article class="daily-card"><div class="daily-head"><div><span class="section-kicker">DESAFIO DO ATLAS</span><h3>1 minuto, 1 estrutura</h3></div><span class="bolt">ϟ</span></div><p>Identifique uma estrutura das pranchas e confira sua resposta no treino.</p><button class="dark-button" data-view="practice">Começar agora <span>→</span></button></article></div>
+        </section>
 
-  .titlebar{text-align:center;max-width:560px;margin-bottom:1.6rem;}
-  .eyebrow{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--gold);display:flex;align-items:center;justify-content:center;gap:.6em;margin-bottom:.6rem;
-  }
-  .eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
-  h1{
-    font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,7vw,3.4rem);
-    margin:0 0 .4rem;letter-spacing:-.01em;color:var(--teal-deep);
-  }
-  h1 em{font-style:italic;color:var(--coral);font-weight:500;}
-  .titlebar p{color:var(--ink-dim);margin:0;font-size:1rem;}
+        <section class="view" id="practiceView">
+          <div class="practice-header"><div><div class="eyebrow"><span></span> TREINO ADAPTATIVO</div><h1>Teste seu <em>mapa mental.</em></h1><p>Questões selecionadas a partir das imagens e anotações do seu PDF.</p></div><div class="score-pill"><span>SESSÃO</span><strong id="sessionScore">0 pts</strong><small id="sessionCount">0 / 115 respondidas</small></div></div>
+          <div class="filter-group"><span class="filter-label">TEMA</span><div class="topic-tabs" id="topicTabs"><button class="selected" data-topic="all">Tudo</button><button data-topic="cranium">Crânio</button><button data-topic="spine">Coluna</button><button data-topic="neuro">Neuro</button><button data-topic="vessels">Vasos</button><button data-topic="meninges">Meninges</button><button data-topic="eye">Olho</button><button data-topic="ear">Ouvido</button><button data-topic="neuro">Córtex</button></div><span class="filter-label level-label">DIFICULDADE</span><div class="topic-tabs level-tabs" id="levelTabs"><button class="selected" data-level="all">Todas · 115</button><button data-level="FÁCIL">Fácil · 36</button><button data-level="MÉDIO">Médio · 38</button><button data-level="DIFÍCIL">Difícil · 41</button></div></div>
+          <div class="quiz-layout"><article class="quiz-card"><div class="quiz-meta"><span class="question-count" id="questionCount">QUESTÃO 01 / 115</span><span class="difficulty" id="questionDifficulty">NÍVEL · BASE</span></div><div class="question-progress"><i id="questionProgress"></i></div><div class="question-tag" id="questionTag">TRONCO ENCEFÁLICO</div><h2 id="questionText">Carregando questão…</h2><div class="answer-area" id="answerArea"></div><div class="quiz-footer"><span id="feedback" class="feedback"></span><button class="primary-button compact" id="nextQuestion">Próxima questão <span>→</span></button></div></article><aside class="session-aside"><div class="aside-head"><span class="section-kicker">MAPA DA SESSÃO</span><span id="accuracyLabel">—</span></div><div class="ring-progress" id="ringProgress"><div><strong id="accuracyValue">0%</strong><small>precisão</small></div></div><div class="legend"><span><i class="dot done-dot"></i> Acerto</span><span><i class="dot pending-dot"></i> Pendente</span></div><div class="tip-card"><span>✦</span><div><strong>Dica de estudo</strong><p>Fale a resposta em voz alta antes de revelar as alternativas.</p></div></div></aside></div>
+        </section>
 
-  .board{width:100%;max-width:900px;display:flex;flex-direction:column;gap:1.4rem;align-items:center;}
+        <section class="view" id="atlasView"><div class="page-heading"><div><div class="eyebrow"><span></span> ATLAS VISUAL</div><h1>Veja. <em>Nomeie.</em> Lembre.</h1><p>As imagens principais do material organizadas para revisão rápida.</p></div><div class="atlas-tools"><label class="atlas-search">⌕<input id="atlasSearch" placeholder="Buscar estrutura ou página" /></label><div class="filter-select">49 pranchas <span>⌄</span></div></div></div><div class="atlas-grid" id="atlasGrid"></div></section>
 
-  .clue-card{
-    width:100%;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.4rem 1.7rem;box-shadow:0 8px 24px rgba(28,43,36,.06);
-    display:flex;flex-direction:column;gap:.5rem;
-  }
-  .clue-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
-  .clue-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);}
-  .hud{display:flex;gap:1.2rem;font-family:var(--mono);font-size:.78rem;color:var(--ink-dim);}
-  .hud b{color:var(--coral);}
-  .clue-text{font-family:var(--display);font-size:1.25rem;line-height:1.35;margin:.3rem 0 0;color:var(--ink);}
-
-  .dishes{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;width:100%;
-  }
-  @media (max-width:640px){ .dishes{grid-template-columns:repeat(2,1fr);gap:.7rem;} }
-  @media (max-width:400px){ .dish .latin{display:none;} }
-
-  .dish{
-    position:relative;aspect-ratio:1/1;border-radius:50%;cursor:pointer;
-    background:
-      radial-gradient(circle at 32% 28%, rgba(255,255,255,.9), transparent 45%),
-      radial-gradient(circle at center, var(--agar) 0%, var(--agar) 62%, #e3dcbd 63%, #e3dcbd 68%, transparent 69%);
-    border:3px solid #d9d2ab;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-    padding:.9rem;transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-    box-shadow:0 6px 16px rgba(28,43,36,.08), inset 0 0 0 6px rgba(255,255,255,.35);
-  }
-  .dish:hover{transform:translateY(-4px);}
-  .dish .glyph{font-size:1.7rem;margin-bottom:.25rem;transition:transform .3s ease;}
-  .dish .name{font-family:var(--body);font-weight:600;font-size:.72rem;color:var(--ink);line-height:1.2;}
-  .dish .latin{font-family:var(--mono);font-style:italic;font-size:.56rem;color:var(--ink-dim);margin-top:.1rem;line-height:1.2;}
-
-  .dish.solved{
-    border-color:var(--teal);
-    background:
-      radial-gradient(circle at 32% 28%, rgba(255,255,255,.9), transparent 45%),
-      radial-gradient(circle at center, #d7f2e8 0%, #d7f2e8 62%, var(--teal) 63%, var(--teal) 68%, transparent 69%);
-    cursor:default;
-  }
-  .dish.solved::after{
-    content:"✓";position:absolute;top:8px;right:14px;color:var(--teal-deep);font-weight:700;font-size:1rem;
-  }
-  .dish.solved .glyph{transform:scale(1.15);}
-  .dish.wrong{animation:shake .4s ease; border-color:var(--coral);}
-  .dish.wrong .glyph{filter:grayscale(.2);}
-  @keyframes shake{
-    0%,100%{transform:translateX(0);}
-    20%{transform:translateX(-6px);}
-    40%{transform:translateX(6px);}
-    60%{transform:translateX(-4px);}
-    80%{transform:translateX(4px);}
-  }
-  .dish.locked{opacity:.55;pointer-events:none;}
-
-  .fact-strip{
-    width:100%;min-height:2.6rem;
-    font-family:var(--mono);font-size:.82rem;color:var(--teal-deep);
-    text-align:center;transition:opacity .3s ease;
-  }
-
-  /* ---------- microscope reveal ---------- */
-  .scope-overlay{
-    position:fixed;inset:0;z-index:60;
-    background:rgba(20,31,26,0.55);backdrop-filter:blur(2px);
-    display:flex;align-items:center;justify-content:center;padding:1.2rem;
-    opacity:0;pointer-events:none;transition:opacity .3s ease;
-  }
-  .scope-overlay.show{opacity:1;pointer-events:auto;}
-  .scope-card{
-    width:100%;max-width:420px;background:var(--paper);border-radius:24px;
-    padding:1.8rem 1.8rem 1.6rem;text-align:center;
-    box-shadow:0 24px 60px rgba(20,31,26,.35);
-    transform:scale(.9) translateY(10px);transition:transform .35s cubic-bezier(.2,.9,.2,1);
-  }
-  .scope-overlay.show .scope-card{transform:scale(1) translateY(0);}
-  .scope-tag{
-    font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--teal-deep);margin-bottom:.9rem;display:flex;align-items:center;justify-content:center;gap:.5em;
-  }
-  .scope-viewport{
-    position:relative;width:210px;height:210px;margin:0 auto 1.1rem;border-radius:50%;
-    background:#0c0c0c;
-    border:8px solid var(--ink);
-    box-shadow:
-      inset 0 0 0 2px rgba(255,255,255,.15),
-      0 10px 24px rgba(20,31,26,.2);
-    display:flex;align-items:center;justify-content:center;overflow:hidden;
-  }
-  .scope-viewport::before,.scope-viewport::after{
-    content:"";position:absolute;background:rgba(255,255,255,.35);z-index:3;
-  }
-  .scope-viewport::before{width:100%;height:1px;top:50%;left:0;}
-  .scope-viewport::after{height:100%;width:1px;left:50%;top:0;}
-  .scope-viewport img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;filter:contrast(1.05) saturate(1.05);}
-  .scope-name{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--teal-deep);margin-bottom:.15rem;}
-  .scope-latin{font-family:var(--mono);font-style:italic;font-size:.78rem;color:var(--ink-dim);margin-bottom:.9rem;}
-  .scope-fact{font-family:var(--body);font-size:.98rem;color:var(--ink);line-height:1.5;margin-bottom:1.5rem;}
-  .scope-progress{
-    font-family:var(--mono);font-size:.72rem;color:var(--ink-dim);margin-bottom:1rem;letter-spacing:.05em;
-  }
-
-  .final-panel{
-    width:100%;max-width:520px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-    padding:2.2rem;text-align:center;box-shadow:0 10px 30px rgba(28,43,36,.08);
-  }
-  .final-panel .tag{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);}
-  .final-panel .rank{font-family:var(--display);font-size:1.8rem;color:var(--teal-deep);margin:.4rem 0;}
-  .final-panel .score{font-family:var(--mono);color:var(--ink-dim);margin-bottom:1.2rem;}
-
-  .btn{
-    font-family:var(--body);font-weight:600;font-size:.92rem;
-    padding:.8em 1.6em;border-radius:999px;border:1px solid var(--teal-deep);
-    background:var(--teal-deep);color:#fff;cursor:pointer;
-    display:inline-flex;align-items:center;gap:.5em;transition:transform .2s ease, background .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px);background:var(--teal);}
-  .btn.ghost{background:transparent;color:var(--teal-deep);}
-  .btn.ghost:hover{background:rgba(31,127,114,0.08);}
-
-
-</style>
-</head>
-<body>
-
-<div class="credit-strip">Criado por <b>Ana Claudia Resende</b>, para o Laboratório de Micologia · FAMED / FURG</div>
-
-<main class="stage">
-  <div class="titlebar">
-    <div class="eyebrow">Jogo das Placas</div>
-    <h1>MICO<em>LÚDICO</em></h1>
-    <p>Leia a pista clínica e toque na placa de Petri que combina com ela.</p>
-  </div>
-
-  <div class="board">
-    <div class="clue-card">
-      <div class="clue-top">
-        <span class="clue-label">Pista <span id="roundNum">1</span> de <span id="roundTotal">6</span></span>
-        <div class="hud"><span>Tentativas: <b id="triesVal">0</b></span></div>
-      </div>
-      <p class="clue-text" id="clueText">Carregando pista...</p>
+        <section class="view" id="topicsView"><div class="page-heading"><div><div class="eyebrow"><span></span> MAPA DO CONTEÚDO</div><h1>Escolha um <em>território.</em></h1><p>Avance por blocos curtos e conecte estruturas.</p></div></div><div class="topic-grid"><button class="topic-large coral-topic" data-view="practice" data-topic="cranium"><span>01</span><strong>Crânio & face</strong><small>forames, temporal, esfenoide</small><i>revisão guiada</i></button><button class="topic-large teal-topic" data-view="practice" data-topic="spine"><span>02</span><strong>Coluna vertebral</strong><small>curvaturas, vértebras, ligamentos</small><i>revisão guiada</i></button><button class="topic-large dark-topic" data-view="practice" data-topic="neuro"><span>03</span><strong>Neuroeixo</strong><small>medula, meninges, cerebelo</small><i>revisão guiada</i></button><button class="topic-large yellow-topic" data-view="practice" data-topic="vessels"><span>04</span><strong>Vascularização</strong><small>vertebrobasilar, Willis, liquor</small><i>revisão guiada</i></button></div></section>
+      </main>
     </div>
-
-    <div class="dishes" id="dishesGrid"></div>
-
-    <div class="fact-strip" id="factStrip"></div>
-  </div>
-
-  <div class="final-panel" id="finalPanel" hidden>
-    <div class="tag">Placar final</div>
-    <div class="rank" id="finalRank"></div>
-    <div class="score" id="finalScore"></div>
-    <button class="btn" id="playAgainBtn">↺ Jogar novamente</button>
-  </div>
-</main>
-
-<div class="scope-overlay" id="scopeOverlay">
-  <div class="scope-card">
-    <div class="scope-tag">🔬 Achado no microscópio</div>
-    <div class="scope-viewport">
-      <img id="scopeDrawing" src="" alt="">
+    <div class="toast" id="toast"></div>
+    <div class="atlas-modal" id="atlasModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-card">
+        <button class="modal-close" data-close-modal aria-label="Fechar">×</button>
+        <div class="modal-image-wrap"><img id="modalImage" alt="" /></div>
+        <div class="modal-copy"><span class="section-kicker" id="modalPage">PRANCHA 01 / 49</span><h2 id="modalTitle">Sistema nervoso central</h2><p id="modalNote"></p><div class="modal-nav"><button id="modalPrev">← Anterior</button><button id="modalNext">Próxima →</button></div></div>
+      </article>
     </div>
-    <div class="scope-name" id="scopeName"></div>
-    <div class="scope-latin" id="scopeLatin"></div>
-    <div class="scope-fact" id="scopeFact"></div>
-    <div class="scope-progress" id="scopeProgress"></div>
-    <button class="btn" id="scopeContinueBtn">Continuar a caçada 🍄</button>
-  </div>
-</div>
-
-<script>
-const phyla = [
-  {id:1, glyph:"🦶", name:"Dermatófitos", latin:"Trichophyton, Microsporum, Epidermophyton",
-   clue:"Adoro viver na queratina da pele, das unhas e dos cabelos. Você me conhece popularmente pelo nome das 'tinhas'.",
-   fact:"Dermatófitos: fungos filamentosos que digerem queratina, causando as micoses superficiais conhecidas como tinhas."},
-  {id:2, glyph:"🧫", name:"Candida albicans", latin:"Candida albicans",
-   clue:"Vivo normalmente no corpo humano sem dar trabalho, mas quando a oportunidade aparece, causo candidíase na boca, na pele ou na vagina.",
-   fact:"Candida albicans: levedura que faz parte da microbiota normal, mas pode causar candidíase quando as defesas do hospedeiro caem."},
-  {id:3, glyph:"☁️", name:"Cryptococcus neoformans", latin:"Cryptococcus neoformans",
-   clue:"Uso uma grossa cápsula como armadura e adoro me esconder em fezes de pombos. Posso causar uma meningite grave.",
-   fact:"Cryptococcus neoformans: levedura encapsulada associada a excretas de aves, causadora de meningite criptocócica em pessoas imunossuprimidas."},
-  {id:4, glyph:"🌾", name:"Aspergillus spp.", latin:"Aspergillus spp.",
-   clue:"Formo uma estrutura parecida com um espanador cheio de esporinhos, e adoro grãos armazenados e ambientes mofados.",
-   fact:"Aspergillus: fungo filamentoso muito comum no ambiente, pode causar aspergilose, principalmente em pessoas com imunidade baixa."},
-  {id:5, glyph:"⚓", name:"Paracoccidioides brasiliensis", latin:"Paracoccidioides brasiliensis",
-   clue:"No microscópio, minhas células-filhas brotam ao redor da célula-mãe formando um desenho parecido com uma roda de leme de navio.",
-   fact:"Paracoccidioides brasiliensis: fungo dimórfico endêmico da América Latina, causador da paracoccidioidomicose, com o clássico aspecto em 'roda de leme'."},
-  {id:6, glyph:"🐈", name:"Sporothrix schenckii", latin:"Sporothrix schenckii",
-   clue:"Costumo entrar pelo corpo através do espinho de uma planta ou da unhada de um gato, e sigo o caminho dos vasos linfáticos pela pele.",
-   fact:"Sporothrix schenckii: fungo dimórfico associado à jardinagem e a arranhaduras de gatos, causador da esporotricose."},
-  {id:7, glyph:"🍝", name:"Malassezia furfur", latin:"Malassezia furfur",
-   clue:"Sou parte normal da pele oleosa, mas às vezes deixo manchas claras ou escuras no tronco, num padrão que lembra espaguete com almôndegas ao microscópio.",
-   fact:"Malassezia furfur: levedura lipofílica da pele, relacionada à pitiríase versicolor, com hifas curtas e leveduras arredondadas."},
-  {id:8, glyph:"🦇", name:"Histoplasma capsulatum", latin:"Histoplasma capsulatum",
-   clue:"Gosto de solos com fezes de morcegos e aves, e quando sou inalado, me escondo dentro das próprias células de defesa do corpo humano.",
-   fact:"Histoplasma capsulatum: fungo dimórfico encontrado em cavernas e solos contaminados, causador da histoplasmose, parasita intracelular em macrófagos."},
-  {id:9, glyph:"🩹", name:"Mucorales", latin:"Rhizopus, Mucor",
-   clue:"Minhas hifas são largas e sem divisórias internas, e eu cresço tão rápido que posso invadir vasos sanguíneos em pacientes bem debilitados.",
-   fact:"Mucorales (Rhizopus, Mucor): fungos de crescimento muito rápido, hifas largas e sem septos, causadores da grave mucormicose."},
-];
-
-const microDrawings = {
-  1: {src:"images/dermatofitos.jpg"}, // Dermatófitos
-  2: {src:"images/candida-albicans.jpg"}, // Candida albicans
-  3: {src:"images/cryptococcus-neoformans.jpg"}, // Cryptococcus neoformans
-  4: {src:"images/aspergillus.jpg"}, // Aspergillus spp.
-  5: {src:"images/paracoccidioides-brasiliensis.jpg"}, // Paracoccidioides brasiliensis
-  6: {src:"images/sporothrix-schenckii.jpg"}, // Sporothrix schenckii
-  7: {src:"images/malassezia-furfur.jpg"}, // Malassezia furfur
-  8: {src:"images/histoplasma-capsulatum.jpg"}, // Histoplasma capsulatum
-  9: {src:"images/mucorales.jpg"}, // Mucorales
-};
-
-let order = [];
-let currentRound = 0;
-let tries = 0;
-let solvedCount = 0;
-let locked = false;
-
-function shuffle(arr){
-  const a = [...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]] = [a[j],a[i]];
-  }
-  return a;
-}
-
-function buildDishes(){
-  const grid = document.getElementById('dishesGrid');
-  grid.innerHTML = '';
-  const shuffledDishes = shuffle(phyla);
-  shuffledDishes.forEach(p=>{
-    const d = document.createElement('div');
-    d.className = 'dish';
-    d.dataset.id = p.id;
-    d.innerHTML = `<div class="glyph">${p.glyph}</div><div class="name">${p.name}</div><div class="latin">${p.latin}</div>`;
-    d.addEventListener('click', ()=> handleGuess(p.id, d));
-    grid.appendChild(d);
-  });
-}
-
-function startGame(){
-  order = shuffle(phyla);
-  currentRound = 0;
-  tries = 0;
-  solvedCount = 0;
-  locked = false;
-  document.getElementById('finalPanel').hidden = true;
-  document.querySelector('.board').style.display = 'flex';
-  document.getElementById('roundTotal').textContent = phyla.length;
-  document.getElementById('triesVal').textContent = 0;
-  document.getElementById('factStrip').textContent = '';
-  buildDishes();
-  nextClue();
-}
-
-function nextClue(){
-  if(currentRound >= order.length){
-    finishGame();
-    return;
-  }
-  document.getElementById('roundNum').textContent = currentRound + 1;
-  document.getElementById('clueText').textContent = order[currentRound].clue;
-}
-
-function showScope(target){
-  const media = microDrawings[target.id];
-  const img = document.getElementById('scopeDrawing');
-  img.style.display = 'block';
-  img.src = media.src;
-  img.alt = "Fotomicrografia de " + target.name;
-  document.getElementById('scopeName').textContent = target.name;
-  document.getElementById('scopeLatin').textContent = target.latin;
-  document.getElementById('scopeFact').textContent = target.fact;
-  const isLast = currentRound + 1 >= order.length;
-  document.getElementById('scopeProgress').textContent = isLast
-    ? `Placa ${currentRound + 1} de ${order.length}, a última!`
-    : `Placa ${currentRound + 1} de ${order.length} encontrada`;
-  document.getElementById('scopeContinueBtn').textContent = isLast ? "Ver meu resultado 🏆" : "Continuar a caçada 🍄";
-  document.getElementById('scopeOverlay').classList.add('show');
-}
-
-function hideScope(){
-  document.getElementById('scopeOverlay').classList.remove('show');
-}
-
-document.getElementById('scopeContinueBtn').addEventListener('click', ()=>{
-  hideScope();
-  currentRound++;
-  locked = false;
-  nextClue();
-});
-
-function handleGuess(id, el){
-  if(locked) return;
-  if(el.classList.contains('solved')) return;
-  const target = order[currentRound];
-  tries++;
-  document.getElementById('triesVal').textContent = tries;
-
-  if(id === target.id){
-    locked = true;
-    el.classList.add('solved');
-    solvedCount++;
-    showScope(target);
-  } else {
-    el.classList.add('wrong');
-    document.getElementById('factStrip').textContent = "Essa não é a placa certa, olhe a pista de novo.";
-    setTimeout(()=>{
-      el.classList.remove('wrong');
-      document.getElementById('factStrip').textContent = '';
-    }, 1100);
-  }
-}
-
-function finishGame(){
-  document.querySelector('.board').style.display = 'none';
-  const panel = document.getElementById('finalPanel');
-  panel.hidden = false;
-  let rank = "Estagiário de Bolores";
-  if(tries <= phyla.length) rank = "Mestre Micologista 🍄";
-  else if(tries <= phyla.length + 3) rank = "Explorador de Micélios";
-  else if(tries <= phyla.length + 6) rank = "Curioso do Reino Fungi";
-  document.getElementById('finalRank').textContent = rank;
-  document.getElementById('finalScore').textContent = `${phyla.length} placas identificadas em ${tries} tentativas`;
-}
-
-document.getElementById('playAgainBtn').addEventListener('click', startGame);
-startGame();
-</script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
