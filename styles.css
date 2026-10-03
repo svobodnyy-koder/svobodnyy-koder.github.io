@@ -53,3 +53,11 @@ body.focus-mode .sidebar{background:#111319}body.focus-mode .main-content{backgr
 .game-next.inline{display:inline-flex}
 @media(max-width:1050px){.game-stage{grid-template-columns:1fr}}
 @media(max-width:760px){.game-image-wrap{min-height:240px}.game-marker{width:34px;height:34px}.game-answer-area{flex-direction:column}.game-answer-area .primary-button{width:100%}}
+
+/* RODAPÉ */
+.site-footer{margin-left:250px;padding:26px 6.3vw 34px;display:flex;align-items:center;gap:9px;font-size:10px;color:#93a19e;border-top:1px solid var(--line);flex-wrap:wrap}
+.footer-brand{font-weight:800;letter-spacing:-.04em;color:var(--ink);font-size:11px}
+.footer-dot{color:var(--coral)}
+.footer-meta{margin-left:auto;font-family:'DM Mono',monospace;letter-spacing:.05em;color:#a7b3b0}
+@media(max-width:1050px){.site-footer{padding-left:4vw;padding-right:4vw}}
+@media(max-width:760px){.site-footer{margin-left:0;padding:22px 20px 30px;gap:7px}.footer-meta{margin-left:0;flex-basis:100%}}
