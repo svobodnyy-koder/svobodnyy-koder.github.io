@@ -1,1337 +1,41 @@
 {
- "01": [
+ "49": [
   {
-   "label": "Cerebro",
-   "x": 20.5,
-   "y": 62.62
+   "label": "Fascículo do cíngulo",
+   "x": 33.17,
+   "y": 23.77
   },
   {
-   "label": "Diencefalo",
-   "x": 49.61,
-   "y": 69.23
+   "label": "Fascículo longitudinal superior",
+   "x": 25.06,
+   "y": 25.74
   },
   {
-   "label": "Mesencefalo",
-   "x": 46.72,
-   "y": 73.08
+   "label": "Fascículo longitudinal inferior",
+   "x": 49.22,
+   "y": 93.69
   },
   {
-   "label": "Ponte",
-   "x": 30.5,
-   "y": 80.47
-  },
-  {
-   "label": "Bulbo",
-   "x": 54.28,
-   "y": 85.01
-  },
-  {
-   "label": "Cerebelo",
-   "x": 76.56,
-   "y": 68.05
-  },
-  {
-   "label": "Medula espinal",
-   "x": 73.22,
-   "y": 86.88
-  }
- ],
- "02": [
-  {
-   "label": "a superior dab",
-   "x": 35.33,
-   "y": 10.36
-  },
-  {
-   "label": "asa menor do",
-   "x": 64.33,
-   "y": 33.14
-  },
-  {
-   "label": "a vista superior tase interna do",
-   "x": 19.0,
-   "y": 89.55
-  },
-  {
-   "label": "orbital superior",
-   "x": 72.33,
-   "y": 41.62
-  },
-  {
-   "label": "forame cago",
-   "x": 35.94,
-   "y": 18.15
-  },
-  {
-   "label": "hipogiosso",
-   "x": 67.67,
-   "y": 71.4
-  }
- ],
- "03": [
-  {
-   "label": "Osso frontal",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso maxila",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso palatino",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso vomer",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso esfenoide",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso temporal",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso parietal",
-   "x": 75.89,
-   "y": 18.84
-  },
-  {
-   "label": "Osso occipital",
-   "x": 75.89,
-   "y": 18.84
-  }
- ],
- "04": [
-  {
-   "label": "cranio em corte",
-   "x": 34.5,
-   "y": 11.14
-  },
-  {
-   "label": "050 occipital",
-   "x": 78.39,
-   "y": 45.76
-  },
-  {
-   "label": "occipital",
-   "x": 64.33,
-   "y": 78.5
-  },
-  {
-   "label": "magno",
-   "x": 77.78,
-   "y": 73.77
-  }
- ],
- "05": [
-  {
-   "label": "temporal",
-   "x": 57.44,
-   "y": 9.66
-  },
-  {
-   "label": "parte",
-   "x": 9.44,
-   "y": 20.02
-  }
- ],
- "07": [
-  {
-   "label": "Atlas",
-   "x": 33.33,
-   "y": 8.88
-  },
-  {
-   "label": "Axis",
-   "x": 45.61,
-   "y": 28.11
-  },
-  {
-   "label": "Vertebras cervicais",
-   "x": 23.89,
-   "y": 53.35
-  },
-  {
-   "label": "Vertebras toracicas",
-   "x": 23.89,
-   "y": 53.35
-  },
-  {
-   "label": "Vertebras lombares",
-   "x": 23.89,
-   "y": 53.35
-  },
-  {
-   "label": "Sacro",
-   "x": 57.33,
-   "y": 78.9
-  },
-  {
-   "label": "Coccyx",
-   "x": 50.0,
-   "y": 92.0
-  }
- ],
- "09": [
-  {
-   "label": "ervica",
-   "x": 58.06,
-   "y": 9.07
-  },
-  {
-   "label": "colun",
-   "x": 33.94,
-   "y": 9.07
-  },
-  {
-   "label": "osteologia da",
-   "x": 22.44,
-   "y": 20.61
-  },
-  {
-   "label": "espinhosos",
-   "x": 9.22,
-   "y": 48.62
-  },
-  {
-   "label": "espinhosos",
-   "x": 31.39,
-   "y": 56.02
-  },
-  {
-   "label": "tuberculo",
-   "x": 9.94,
-   "y": 32.35
-  },
-  {
-   "label": "posterior",
-   "x": 83.83,
-   "y": 28.01
-  },
-  {
-   "label": "sulco do",
-   "x": 89.61,
-   "y": 49.11
-  }
- ],
- "10": [
-  {
-   "label": "ragic",
-   "x": 39.5,
-   "y": 21.3
-  },
-  {
-   "label": "processo e",
-   "x": 73.94,
-   "y": 20.91
-  },
-  {
-   "label": "fovea costal",
-   "x": 52.83,
-   "y": 23.87
-  }
- ],
- "12": [
-  {
-   "label": "Disco intervertebral",
-   "x": 39.06,
-   "y": 14.79
-  },
-  {
-   "label": "Anel fibroso",
-   "x": 92.5,
-   "y": 59.07
-  },
-  {
-   "label": "Nucleo pulposo",
-   "x": 72.39,
-   "y": 91.32
-  }
- ],
- "13": [
-  {
-   "label": "Corpo ciliar",
-   "x": 38.56,
-   "y": 15.38
-  },
-  {
-   "label": "Fovea",
-   "x": 88.33,
-   "y": 39.15
-  },
-  {
-   "label": "Pupila",
-   "x": 36.33,
-   "y": 71.7
-  },
-  {
-   "label": "Iris",
-   "x": 38.17,
-   "y": 75.44
-  },
-  {
-   "label": "Humor vitreo",
-   "x": 49.78,
-   "y": 66.37
-  },
-  {
-   "label": "Ligamentos",
-   "x": 41.06,
-   "y": 83.73
-  },
-  {
-   "label": "Ponto cego",
-   "x": 83.94,
-   "y": 76.63
-  },
-  {
-   "label": "Esclerotica",
-   "x": 82.0,
-   "y": 10.0
-  },
-  {
-   "label": "Cornea",
-   "x": 35.0,
-   "y": 35.0
-  }
- ],
- "14": [
-  {
-   "label": "c ristalin",
-   "x": 43.0,
-   "y": 13.61
-  },
-  {
-   "label": "corpo",
-   "x": 20.56,
-   "y": 40.83
-  },
-  {
-   "label": "camara anterior",
-   "x": 22.06,
-   "y": 49.11
-  },
-  {
-   "label": "cornea",
-   "x": 25.0,
-   "y": 56.41
-  },
-  {
-   "label": "esclera",
-   "x": 64.17,
-   "y": 33.14
-  },
-  {
-   "label": "vitreo",
-   "x": 68.83,
-   "y": 43.98
-  }
- ],
- "16": [
-  {
-   "label": "superior oblique",
-   "x": 25.67,
-   "y": 22.19
-  },
-  {
-   "label": "inferior oblique",
-   "x": 62.33,
-   "y": 84.71
-  },
-  {
-   "label": "inferior oblique",
-   "x": 27.28,
-   "y": 84.71
-  },
-  {
-   "label": "inferior rectus",
-   "x": 18.44,
-   "y": 78.9
-  },
-  {
-   "label": "medial rectus",
-   "x": 13.56,
-   "y": 35.9
-  },
-  {
-   "label": "superior oblique",
-   "x": 67.78,
-   "y": 22.39
-  },
-  {
-   "label": "superior rectus",
-   "x": 72.11,
-   "y": 28.5
-  },
-  {
-   "label": "superior rectus",
-   "x": 20.17,
-   "y": 28.9
-  },
-  {
-   "label": "inferior rectus",
-   "x": 69.89,
-   "y": 78.8
-  },
-  {
-   "label": "lateral rectus",
-   "x": 12.5,
-   "y": 73.08
-  },
-  {
-   "label": "lateral rectus",
-   "x": 77.0,
-   "y": 35.5
-  },
-  {
-   "label": "medial rectus",
-   "x": 76.78,
-   "y": 73.18
-  }
- ],
- "17": [
-  {
-   "label": "separa se da pia mater pelo espaco subaracndideo que contem o cerebroespinhal ou liquor havendo ampla",
-   "x": 52.17,
-   "y": 32.05
-  },
-  {
-   "label": "ada justaposta a dura mater da qual se separa por um espaco virtual o espaco subdural contendo pequena",
-   "x": 56.22,
-   "y": 14.5
-  },
-  {
-   "label": "aracnoide",
-   "x": 14.5,
-   "y": 7.5
-  },
-  {
-   "label": "necesserio das superficies de contato das duas membranas",
-   "x": 28.94,
-   "y": 25.35
-  },
-  {
-   "label": "entre 0 subaracndideo do encefalo e da medula",
-   "x": 32.06,
-   "y": 35.5
-  },
-  {
-   "label": "quantidade de liquido",
-   "x": 11.56,
-   "y": 18.05
-  },
-  {
-   "label": "arisa",
-   "x": 24.5,
-   "y": 62.72
-  },
-  {
-   "label": "trabeculas",
-   "x": 7.67,
-   "y": 42.8
-  }
- ],
- "18": [
-  {
-   "label": "seio petroso superior",
-   "x": 49.67,
-   "y": 11.44
-  },
-  {
-   "label": "seio sagital superior",
-   "x": 9.06,
-   "y": 11.64
-  },
-  {
-   "label": "selo infer",
-   "x": 66.06,
-   "y": 20.12
-  },
-  {
-   "label": "seio sagital interior",
-   "x": 26.67,
-   "y": 3.75
-  },
-  {
-   "label": "transverso direito",
-   "x": 9.72,
-   "y": 60.55
-  },
-  {
-   "label": "petroso superior",
-   "x": 10.33,
-   "y": 72.58
-  },
-  {
-   "label": "corebral magna",
-   "x": 7.28,
-   "y": 24.06
-  },
-  {
-   "label": "veias do plexo",
-   "x": 36.06,
-   "y": 86.59
-  },
-  {
-   "label": "seio reto",
-   "x": 8.78,
-   "y": 30.97
-  },
-  {
-   "label": "dos seios",
-   "x": 8.89,
-   "y": 36.69
-  },
-  {
-   "label": "da seta",
-   "x": 88.61,
-   "y": 63.51
-  },
-  {
-   "label": "sigmoideo",
-   "x": 44.17,
-   "y": 3.65
-  }
- ],
- "19": [
-  {
-   "label": "Cisterna pontina",
-   "x": 22.56,
-   "y": 47.44
-  },
-  {
-   "label": "Cisterna interpeduncular",
-   "x": 22.56,
-   "y": 47.44
-  },
-  {
-   "label": "Cisterna quiasmatica",
-   "x": 22.56,
-   "y": 47.44
-  },
-  {
-   "label": "Cisterna superior",
-   "x": 22.56,
-   "y": 47.44
-  },
-  {
-   "label": "Cisterna da fossa lateral do cerebro",
-   "x": 22.56,
-   "y": 47.44
-  },
-  {
-   "label": "Cisterna cerebro-medular (cisterna magna)",
-   "x": 30.0,
-   "y": 35.0
-  }
- ],
- "20": [
-  {
-   "label": "Arterias vertebrais",
-   "x": 25.72,
-   "y": 29.78
-  },
-  {
-   "label": "Arteria basilar",
-   "x": 25.72,
-   "y": 34.42
-  },
-  {
-   "label": "Arteria do labirinto",
-   "x": 25.72,
-   "y": 34.42
-  },
-  {
-   "label": "Arteria cerebelar superior",
-   "x": 15.0,
-   "y": 45.0
-  },
-  {
-   "label": "Arteria cerebelar inferior",
-   "x": 20.0,
-   "y": 50.0
-  }
- ],
- "21": [
-  {
-   "label": "Arteria cerebral posterior",
-   "x": 15.17,
-   "y": 51.87
-  },
-  {
-   "label": "Arteria cerebral anterior",
-   "x": 15.0,
-   "y": 43.0
-  },
-  {
-   "label": "Arteria cerebral media",
-   "x": 15.0,
-   "y": 47.0
-  }
- ],
- "22": [
-  {
-   "label": "espinhal",
-   "x": 11.06,
-   "y": 32.74
-  },
-  {
-   "label": "medula",
-   "x": 9.72,
-   "y": 23.18
-  },
-  {
-   "label": "posteriores 3",
-   "x": 92.72,
-   "y": 55.62
-  },
-  {
-   "label": "cubierta por",
-   "x": 53.94,
-   "y": 42.11
-  },
-  {
-   "label": "y duramadre",
-   "x": 53.94,
-   "y": 55.33
-  },
-  {
-   "label": "colectivamente",
-   "x": 93.11,
-   "y": 77.61
-  },
-  {
-   "label": "posteriores",
-   "x": 91.89,
-   "y": 86.09
-  },
-  {
-   "label": "aracnoides",
-   "x": 53.44,
-   "y": 80.77
-  },
-  {
-   "label": "tadiculares",
-   "x": 91.11,
-   "y": 20.41
-  },
-  {
-   "label": "raices",
-   "x": 88.28,
-   "y": 30.08
-  },
-  {
-   "label": "espacio",
-   "x": 52.28,
-   "y": 68.74
-  },
-  {
-   "label": "toracica",
-   "x": 43.56,
-   "y": 41.12
-  },
-  {
-   "label": "lordose",
-   "x": 38.44,
-   "y": 9.27
-  },
-  {
-   "label": "dentado",
-   "x": 52.33,
-   "y": 27.32
-  },
-  {
-   "label": "medula",
-   "x": 52.06,
-   "y": 33.43
-  },
-  {
-   "label": "filetes",
-   "x": 89.61,
-   "y": 47.44
-  },
-  {
-   "label": "vista",
-   "x": 68.94,
-   "y": 96.35
-  }
- ],
- "23": [
-  {
-   "label": "raizes ventral e dorsal",
-   "x": 43.83,
-   "y": 6.41
-  },
-  {
-   "label": "anterior da medula",
-   "x": 77.83,
-   "y": 60.16
-  },
-  {
-   "label": "anterior da medula",
-   "x": 73.83,
-   "y": 90.53
-  },
-  {
-   "label": "raiz dorsal do",
-   "x": 9.28,
-   "y": 37.87
-  },
-  {
-   "label": "canal medula espinhat",
-   "x": 14.28,
-   "y": 22.58
-  },
-  {
-   "label": "da medula espinhal",
-   "x": 70.72,
-   "y": 78.99
-  },
-  {
-   "label": "funiculo",
-   "x": 69.78,
-   "y": 33.63
-  },
-  {
-   "label": "espinhal",
-   "x": 16.5,
-   "y": 41.22
-  },
-  {
-   "label": "radiculas",
-   "x": 22.44,
-   "y": 92.9
-  },
-  {
-   "label": "espinhal",
-   "x": 63.67,
-   "y": 93.79
-  }
- ],
- "24": [
-  {
-   "label": "fasciculo lengitudinal media",
-   "x": 73.33,
-   "y": 69.82
-  },
-  {
-   "label": "em corte",
-   "x": 52.44,
-   "y": 10.85
-  },
-  {
-   "label": "tracto espinocerabelar dorsal",
-   "x": 70.83,
-   "y": 33.14
-  },
-  {
-   "label": "fasciculo preprioantarior",
-   "x": 20.33,
-   "y": 83.23
-  },
-  {
-   "label": "fasciculo septomarainat",
-   "x": 18.22,
-   "y": 76.53
-  },
-  {
-   "label": "trato espinorreticular",
-   "x": 71.5,
-   "y": 64.69
-  },
-  {
-   "label": "trato rubro espinhal",
-   "x": 17.94,
-   "y": 63.31
-  },
-  {
-   "label": "fasciculo grecil",
-   "x": 29.67,
-   "y": 23.08
-  }
- ],
- "25": [
-  {
-   "label": "meninges",
-   "x": 42.11,
-   "y": 9.17
-  },
-  {
-   "label": "medula espinhal",
-   "x": 10.5,
-   "y": 19.43
-  },
-  {
-   "label": "subaracndide",
-   "x": 15.06,
-   "y": 65.88
-  },
-  {
-   "label": "espinhais",
-   "x": 77.67,
-   "y": 36.29
-  },
-  {
-   "label": "espaco",
-   "x": 13.44,
-   "y": 76.13
-  }
- ],
- "26": [
-  {
-   "label": "origem encefalica dos",
-   "x": 75.5,
-   "y": 30.77
-  },
-  {
-   "label": "origem aparente no",
-   "x": 20.83,
-   "y": 63.71
-  },
-  {
-   "label": "nar pa",
-   "x": 91.17,
-   "y": 89.15
-  },
-  {
-   "label": "nev al",
-   "x": 47.94,
-   "y": 34.32
-  },
-  {
-   "label": "are maa",
-   "x": 44.44,
-   "y": 68.64
-  },
-  {
-   "label": "cranianos",
-   "x": 20.61,
-   "y": 73.77
-  }
- ],
- "27": [
-  {
-   "label": "eminencia medial da",
-   "x": 12.44,
-   "y": 67.46
-  },
-  {
-   "label": "tuberculo talamico",
-   "x": 55.78,
-   "y": 3.16
-  },
-  {
-   "label": "medular superior",
-   "x": 12.5,
-   "y": 48.13
-  },
-  {
-   "label": "lateral da",
-   "x": 61.67,
-   "y": 84.62
-  },
-  {
-   "label": "inferior",
-   "x": 16.11,
-   "y": 41.62
-  },
-  {
-   "label": "fasciculo grecil",
-   "x": 53.67,
-   "y": 96.45
-  },
-  {
-   "label": "tubercuto",
-   "x": 56.17,
-   "y": 75.84
-  },
-  {
-   "label": "superior",
-   "x": 17.28,
-   "y": 31.46
-  },
-  {
-   "label": "nervo",
-   "x": 55.94,
-   "y": 35.7
-  }
- ],
- "28": [
-  {
-   "label": "Tecto do mesencefalo",
-   "x": 38.0,
-   "y": 17.95
-  },
-  {
-   "label": "Pedunculo cerebral",
-   "x": 33.5,
-   "y": 27.02
-  },
-  {
-   "label": "Base do pedunculo",
-   "x": 87.17,
-   "y": 26.92
-  },
-  {
-   "label": "Tegmento",
-   "x": 80.06,
-   "y": 35.8
-  },
-  {
-   "label": "Aqueduto cerebral",
-   "x": 35.0,
-   "y": 8.0
-  }
- ],
- "29": [
-  {
-   "label": "Nervo oftalmico (V1)",
-   "x": 19.78,
-   "y": 36.98
-  },
-  {
-   "label": "Nervo maxilar (V2)",
-   "x": 19.78,
-   "y": 36.98
-  },
-  {
-   "label": "Nervo mandibular (V3)",
-   "x": 19.78,
-   "y": 36.98
-  },
-  {
-   "label": "Supraorbitais",
-   "x": 89.67,
-   "y": 31.56
-  },
-  {
-   "label": "Infraorbital",
-   "x": 88.22,
-   "y": 56.8
-  },
-  {
-   "label": "Forame mentual",
-   "x": 49.06,
-   "y": 77.61
-  }
- ],
- "30": [
-  {
-   "label": "cerebelo",
-   "x": 40.39,
-   "y": 6.11
-  },
-  {
-   "label": "canal central da meduls expinh al",
-   "x": 30.28,
-   "y": 95.66
-  },
-  {
-   "label": "cordide do",
-   "x": 20.28,
-   "y": 81.26
-  },
-  {
-   "label": "corpo pineal",
-   "x": 59.67,
-   "y": 36.69
-  },
-  {
-   "label": "compo do",
-   "x": 12.61,
-   "y": 15.58
-  },
-  {
-   "label": "lamina quadtigeminal",
-   "x": 16.67,
-   "y": 71.6
-  },
-  {
-   "label": "lingula do vermis",
-   "x": 77.72,
-   "y": 64.69
-  }
- ],
- "31": [
-  {
-   "label": "pedunculos cerebelares",
-   "x": 64.89,
-   "y": 10.75
-  },
-  {
-   "label": "tonsila cerebelar",
-   "x": 69.06,
-   "y": 28.01
-  },
-  {
-   "label": "vermis",
-   "x": 48.94,
-   "y": 5.03
-  },
-  {
-   "label": "nedulo",
-   "x": 58.61,
-   "y": 16.37
-  }
- ],
- "32": [
-  {
-   "label": "nedulo",
-   "x": 13.06,
-   "y": 85.8
-  },
-  {
-   "label": "piramide",
-   "x": 13.11,
-   "y": 69.72
-  },
-  {
-   "label": "eclive",
-   "x": 13.61,
-   "y": 45.56
-  }
- ],
- "33": [
-  {
-   "label": "anatomia da orelha",
-   "x": 42.61,
-   "y": 6.9
-  },
-  {
-   "label": "externa",
-   "x": 29.61,
-   "y": 94.97
-  },
-  {
-   "label": "orelha",
-   "x": 50.89,
-   "y": 90.34
-  },
-  {
-   "label": "orelha",
-   "x": 70.67,
-   "y": 90.24
-  },
-  {
-   "label": "masculo temporal",
-   "x": 21.5,
-   "y": 18.34
-  },
-  {
-   "label": "meato",
-   "x": 36.94,
-   "y": 27.61
-  },
-  {
-   "label": "temporal",
-   "x": 36.0,
-   "y": 20.51
-  },
-  {
-   "label": "cartilagem",
-   "x": 40.56,
-   "y": 71.01
-  },
-  {
-   "label": "timpanica",
-   "x": 57.67,
-   "y": 75.74
-  },
-  {
-   "label": "bigorna",
-   "x": 49.28,
-   "y": 24.06
-  }
- ],
- "34": [
-  {
-   "label": "membrana timpanica",
-   "x": 40.44,
-   "y": 7.99
-  },
-  {
-   "label": "oss culos da orelha vistos da membrana",
-   "x": 59.67,
-   "y": 95.17
-  },
-  {
-   "label": "otoscepica timpanica",
-   "x": 18.33,
-   "y": 95.46
-  },
-  {
-   "label": "prega malear",
-   "x": 34.33,
-   "y": 40.93
-  },
-  {
-   "label": "semitransparente",
-   "x": 80.33,
-   "y": 85.8
-  },
-  {
-   "label": "janela da ceclea",
-   "x": 48.28,
-   "y": 85.31
-  },
-  {
-   "label": "famocurto",
-   "x": 46.83,
-   "y": 32.45
-  },
-  {
-   "label": "n corda do",
-   "x": 46.83,
-   "y": 45.66
-  },
-  {
-   "label": "tendeo do",
-   "x": 78.06,
-   "y": 66.57
-  },
-  {
-   "label": "tendao do",
-   "x": 46.61,
-   "y": 77.02
-  },
-  {
-   "label": "posterior",
-   "x": 5.17,
-   "y": 41.12
-  },
-  {
-   "label": "eminencia",
-   "x": 46.56,
-   "y": 68.64
-  },
-  {
-   "label": "membrana",
-   "x": 34.0,
-   "y": 69.03
-  },
-  {
-   "label": "membrana",
-   "x": 78.11,
-   "y": 79.29
-  },
-  {
-   "label": "provesso",
-   "x": 33.33,
-   "y": 50.99
-  },
-  {
-   "label": "tegme",
-   "x": 76.94,
-   "y": 20.51
-  },
-  {
-   "label": "prega",
-   "x": 4.39,
-   "y": 34.81
-  },
-  {
-   "label": "recesso",
-   "x": 46.06,
-   "y": 20.12
-  },
-  {
-   "label": "martelo",
-   "x": 76.5,
-   "y": 29.88
-  },
-  {
-   "label": "tongo",
-   "x": 4.28,
-   "y": 49.31
-  },
-  {
-   "label": "lateral",
-   "x": 77.33,
-   "y": 42.6
-  },
-  {
-   "label": "tensa",
-   "x": 4.17,
-   "y": 66.96
-  },
-  {
-   "label": "parte",
-   "x": 32.11,
-   "y": 34.62
-  }
- ],
- "36": [
-  {
-   "label": "trompa de eustaquio",
-   "x": 53.39,
-   "y": 91.22
-  },
-  {
-   "label": "janela redonda",
-   "x": 36.61,
-   "y": 38.46
-  },
-  {
-   "label": "duto coclear",
-   "x": 76.28,
-   "y": 25.35
-  },
-  {
-   "label": "coclea",
-   "x": 73.44,
-   "y": 9.76
-  },
-  {
-   "label": "janela oval",
-   "x": 48.44,
-   "y": 76.73
-  },
-  {
-   "label": "vestibular",
-   "x": 76.33,
-   "y": 52.76
-  },
-  {
-   "label": "tienpano",
-   "x": 18.67,
-   "y": 91.12
-  },
-  {
-   "label": "bigerna",
-   "x": 24.22,
-   "y": 18.15
-  },
-  {
-   "label": "acustico",
-   "x": 6.56,
-   "y": 84.42
-  },
-  {
-   "label": "martela",
-   "x": 12.28,
-   "y": 7.5
-  },
-  {
-   "label": "escala",
-   "x": 76.22,
-   "y": 62.82
-  },
-  {
-   "label": "escala",
-   "x": 76.33,
-   "y": 47.04
-  },
-  {
-   "label": "meato",
-   "x": 6.5,
-   "y": 78.9
-  }
- ],
- "37": [
-  {
-   "label": "ouvido interno",
-   "x": 43.28,
-   "y": 7.5
-  },
-  {
-   "label": "janela oval",
-   "x": 14.94,
-   "y": 78.01
-  },
-  {
-   "label": "vestibular",
-   "x": 62.44,
-   "y": 34.81
-  },
-  {
-   "label": "endolinfa",
-   "x": 14.56,
-   "y": 52.56
-  },
-  {
-   "label": "perilinfa",
-   "x": 14.0,
-   "y": 59.07
-  },
-  {
-   "label": "redonda",
-   "x": 19.72,
-   "y": 84.91
-  },
-  {
-   "label": "ceclea",
-   "x": 26.22,
-   "y": 91.03
-  },
-  {
-   "label": "nervo",
-   "x": 70.06,
-   "y": 39.64
-  }
- ],
- "38": [
-  {
-   "label": "regulam varias",
-   "x": 23.11,
-   "y": 68.64
-  },
-  {
-   "label": "corpo caloso",
-   "x": 13.44,
-   "y": 18.34
-  },
-  {
-   "label": "cerebelo",
-   "x": 70.44,
-   "y": 91.52
-  },
-  {
-   "label": "talamo",
-   "x": 7.89,
-   "y": 50.3
-  }
- ],
- "39": [
-  {
-   "label": "absorgao do liquor",
-   "x": 19.94,
-   "y": 57.89
-  },
-  {
-   "label": "circulagao",
-   "x": 12.06,
-   "y": 41.52
-  },
-  {
-   "label": "formacao",
-   "x": 11.39,
-   "y": 25.35
+   "label": "Fascículo unciforme",
+   "x": 27.83,
+   "y": 91.91
   }
  ],
  "40": [
   {
    "label": "Lobo frontal",
-   "x": 60.33,
-   "y": 37.18
+   "x": 31.39,
+   "y": 40.34
   },
   {
    "label": "Lobo parietal",
-   "x": 54.06,
-   "y": 34.62
+   "x": 18.11,
+   "y": 34.91
   },
   {
    "label": "Lobo temporal",
-   "x": 10.06,
-   "y": 96.06
+   "x": 57.17,
+   "y": 34.81
   },
   {
    "label": "Lobo occipital",
@@ -1339,357 +43,294 @@
    "y": 46.15
   },
   {
-   "label": "Frontal: motricidade e psiquismo",
-   "x": 60.33,
+   "label": "Motricidade e psiquismo",
+   "x": 82.22,
+   "y": 20.32
+  },
+  {
+   "label": "Audição e linguagem",
+   "x": 82.0,
+   "y": 31.95
+  },
+  {
+   "label": "Memória e emoção",
+   "x": 67.67,
    "y": 37.18
   },
   {
-   "label": "Parietal: sensibilidade",
-   "x": 54.06,
-   "y": 34.62
-  },
-  {
-   "label": "Temporal: audicao, linguagem",
-   "x": 10.06,
-   "y": 96.06
-  },
-  {
-   "label": "Memoria e emocao",
-   "x": 67.33,
-   "y": 39.55
-  },
-  {
-   "label": "Occipital: visao",
-   "x": 8.11,
-   "y": 46.15
+   "label": "Visão",
+   "x": 69.67,
+   "y": 42.31
   }
  ],
- "41": [
+ "29": [
   {
-   "label": "sulco temporal superior",
-   "x": 39.39,
-   "y": 88.26
-  },
-  {
-   "label": "giro temporal inferior",
-   "x": 64.83,
-   "y": 88.86
-  },
-  {
-   "label": "sulco frontal superior",
-   "x": 14.17,
-   "y": 24.16
-  },
-  {
-   "label": "sulco intraparictal",
-   "x": 67.94,
-   "y": 22.09
-  },
-  {
-   "label": "sulco temporal",
-   "x": 42.11,
-   "y": 94.77
-  },
-  {
-   "label": "polo temporal",
-   "x": 20.22,
-   "y": 86.69
-  },
-  {
-   "label": "lobulo pariet",
-   "x": 70.0,
-   "y": 27.71
-  },
-  {
-   "label": "arictoccipital",
-   "x": 79.61,
-   "y": 41.12
-  },
-  {
-   "label": "pre central",
-   "x": 28.39,
-   "y": 14.5
-  },
-  {
-   "label": "de syivius",
-   "x": 9.61,
-   "y": 78.3
-  },
-  {
-   "label": "amarginal",
-   "x": 76.67,
-   "y": 30.28
-  },
-  {
-   "label": "occipital",
-   "x": 78.72,
-   "y": 63.41
-  },
-  {
-   "label": "occipital",
-   "x": 72.06,
-   "y": 79.09
-  }
- ],
- "42": [
-  {
-   "label": "parietooccipital",
-   "x": 76.72,
-   "y": 14.2
-  },
-  {
-   "label": "fimbtia do hipocampo",
-   "x": 74.67,
-   "y": 74.75
-  },
-  {
-   "label": "giro para hipocampal",
-   "x": 69.72,
-   "y": 81.66
-  },
-  {
-   "label": "tronco do corpo",
-   "x": 25.28,
-   "y": 8.97
-  },
-  {
-   "label": "corpo mamilar",
-   "x": 15.61,
-   "y": 80.28
-  },
-  {
-   "label": "giro lingular",
-   "x": 64.28,
-   "y": 11.83
-  },
-  {
-   "label": "do eingulo",
-   "x": 19.56,
-   "y": 15.48
-  },
-  {
-   "label": "corpe do",
-   "x": 28.83,
-   "y": 92.6
-  },
-  {
-   "label": "do corpo",
-   "x": 10.67,
-   "y": 18.54
-  }
- ],
- "43": [
-  {
-   "label": "sulco do hipocampo",
-   "x": 25.83,
-   "y": 65.68
-  },
-  {
-   "label": "lobo occipital 2",
-   "x": 36.0,
-   "y": 86.59
-  },
-  {
-   "label": "incisura pre occipital",
-   "x": 28.78,
-   "y": 79.98
-  },
-  {
-   "label": "fissura longitudinal",
-   "x": 31.44,
-   "y": 17.55
-  },
-  {
-   "label": "fossa lateral do cerebro",
-   "x": 25.39,
-   "y": 33.14
-  },
-  {
-   "label": "giro do hipocampo",
-   "x": 24.39,
-   "y": 54.54
-  },
-  {
-   "label": "lobo temporal",
-   "x": 29.44,
-   "y": 39.84
-  },
-  {
-   "label": "polo occipital",
-   "x": 41.0,
-   "y": 96.06
-  },
-  {
-   "label": "palo temporal",
-   "x": 30.89,
-   "y": 26.92
-  },
-  {
-   "label": "lobo frontal",
-   "x": 38.61,
-   "y": 12.23
-  },
-  {
-   "label": "polo frontal",
-   "x": 43.22,
-   "y": 6.71
-  },
-  {
-   "label": "diencefalo",
-   "x": 28.06,
-   "y": 44.97
-  }
- ],
- "44": [
-  {
-   "label": "giros pre e pos central",
-   "x": 46.22,
-   "y": 8.48
-  },
-  {
-   "label": "motor cortex",
-   "x": 20.61,
-   "y": 95.46
-  },
-  {
-   "label": "somatesensory cortex",
-   "x": 53.94,
-   "y": 28.21
-  },
-  {
-   "label": "ips a",
-   "x": 7.67,
-   "y": 72.68
-  },
-  {
-   "label": "tongue",
-   "x": 38.78,
-   "y": 90.63
-  },
-  {
-   "label": "tongue",
-   "x": 4.17,
-   "y": 86.79
-  }
- ],
- "45": [
-  {
-   "label": "area de",
-   "x": 10.39,
-   "y": 61.64
-  },
-  {
-   "label": "afiea",
-   "x": 79.67,
-   "y": 26.43
-  }
- ],
- "46": [
-  {
-   "label": "nacleo subtalamico",
-   "x": 24.0,
-   "y": 95.46
-  },
-  {
-   "label": "substancia negra",
-   "x": 73.56,
-   "y": 63.31
-  },
-  {
-   "label": "nucleo caudado",
-   "x": 73.22,
-   "y": 10.85
-  },
-  {
-   "label": "hipotalamo",
-   "x": 32.39,
-   "y": 85.31
-  },
-  {
-   "label": "globo palido",
-   "x": 71.28,
-   "y": 50.2
-  },
-  {
-   "label": "putamen",
-   "x": 69.28,
+   "label": "Nervo oftálmico",
+   "x": 19.78,
    "y": 36.98
   },
   {
-   "label": "talamo",
-   "x": 68.72,
-   "y": 23.67
+   "label": "Nervo maxilar",
+   "x": 18.56,
+   "y": 41.22
   },
   {
-   "label": "cortex",
-   "x": 17.17,
-   "y": 27.61
+   "label": "Nervo mandibular",
+   "x": 20.33,
+   "y": 49.7
+  },
+  {
+   "label": "Forame infraorbital",
+   "x": 88.22,
+   "y": 56.8
+  },
+  {
+   "label": "Forame mentual",
+   "x": 46.33,
+   "y": 80.57
+  },
+  {
+   "label": "Ramo nasal externo",
+   "x": 87.89,
+   "y": 44.58
+  },
+  {
+   "label": "Trigêmeo",
+   "x": 23.06,
+   "y": 16.67
   }
  ],
- "47": [
+ "28": [
   {
-   "label": "corte",
-   "x": 24.78,
-   "y": 8.58
+   "label": "Aqueduto cerebral",
+   "x": 36.06,
+   "y": 5.23
   },
   {
-   "label": "cabega do nucleo caudado",
-   "x": 10.67,
-   "y": 29.29
+   "label": "Tecto do mesencéfalo",
+   "x": 44.39,
+   "y": 18.05
   },
   {
-   "label": "putamen do lentiforme",
-   "x": 73.78,
-   "y": 37.48
+   "label": "Pedúnculo cerebral",
+   "x": 90.72,
+   "y": 26.92
   },
   {
-   "label": "globo pilido do",
-   "x": 72.72,
-   "y": 45.86
-  },
-  {
-   "label": "talamo",
-   "x": 11.56,
-   "y": 56.61
+   "label": "Tegmento",
+   "x": 80.06,
+   "y": 35.8
   }
  ],
- "48": [
+ "19": [
   {
-   "label": "capsula interna",
-   "x": 46.94,
-   "y": 10.95
+   "label": "Cisterna pontina",
+   "x": 22.67,
+   "y": 39.84
   },
   {
-   "label": "fibras de projessao",
-   "x": 42.78,
-   "y": 20.41
+   "label": "Cisterna interpeduncular",
+   "x": 26.28,
+   "y": 44.87
   },
   {
-   "label": "cauda do nucleo",
-   "x": 88.89,
-   "y": 79.68
+   "label": "Cisterna quiasmática",
+   "x": 24.5,
+   "y": 50.2
+  },
+  {
+   "label": "Cisterna superior",
+   "x": 23.0,
+   "y": 55.82
+  },
+  {
+   "label": "Cisterna da fossa lateral",
+   "x": 27.0,
+   "y": 60.65
   }
  ],
- "49": [
+ "20": [
   {
-   "label": "Fasciculo longitudinal superior",
-   "x": 44.06,
-   "y": 24.06
+   "label": "Artérias vertebrais",
+   "x": 18.33,
+   "y": 26.63
   },
   {
-   "label": "Fasciculo do cingulo",
-   "x": 44.78,
-   "y": 22.98
+   "label": "Artéria basilar",
+   "x": 15.17,
+   "y": 32.94
   },
   {
-   "label": "Fasciculo unciforme",
-   "x": 41.17,
-   "y": 93.0
+   "label": "Artéria cerebelar superior",
+   "x": 15.17,
+   "y": 44.67
   },
   {
-   "label": "Fasciculo longitudinal inferior",
-   "x": 49.22,
-   "y": 93.69
+   "label": "Artéria do labirinto",
+   "x": 13.67,
+   "y": 52.47
+  },
+  {
+   "label": "Ramos pontinos",
+   "x": 11.44,
+   "y": 64.79
+  }
+ ],
+ "13": [
+  {
+   "label": "Esclerótica",
+   "x": 80.28,
+   "y": 9.27
+  },
+  {
+   "label": "Corpo ciliar",
+   "x": 38.56,
+   "y": 15.38
+  },
+  {
+   "label": "Fóvea",
+   "x": 88.33,
+   "y": 39.15
+  },
+  {
+   "label": "Pupila",
+   "x": 35.72,
+   "y": 68.93
+  },
+  {
+   "label": "Íris",
+   "x": 38.17,
+   "y": 75.44
+  },
+  {
+   "label": "Humor vítreo",
+   "x": 60.22,
+   "y": 63.31
+  },
+  {
+   "label": "Ponto cego",
+   "x": 83.94,
+   "y": 76.63
+  }
+ ],
+ "12": [
+  {
+   "label": "Disco intervertebral",
+   "x": 22.17,
+   "y": 11.64
+  },
+  {
+   "label": "Anel fibroso",
+   "x": 92.5,
+   "y": 59.07
+  },
+  {
+   "label": "Núcleo pulposo",
+   "x": 72.39,
+   "y": 91.32
+  }
+ ],
+ "07": [
+  {
+   "label": "Lordose cervical",
+   "x": 12.33,
+   "y": 20.61
+  },
+  {
+   "label": "Cifose torácica",
+   "x": 10.83,
+   "y": 28.01
+  },
+  {
+   "label": "Lordose lombar",
+   "x": 18.28,
+   "y": 75.94
+  },
+  {
+   "label": "Sacro",
+   "x": 57.33,
+   "y": 78.9
+  }
+ ],
+ "08": [
+  {
+   "label": "Processo transverso",
+   "x": 11.89,
+   "y": 9.07
+  }
+ ],
+ "03": [
+  {
+   "label": "Osso maxilar",
+   "x": 77.28,
+   "y": 18.64
+  },
+  {
+   "label": "Osso palatino",
+   "x": 86.06,
+   "y": 38.95
+  },
+  {
+   "label": "Osso vomer",
+   "x": 86.11,
+   "y": 56.71
+  },
+  {
+   "label": "Osso esfenoide",
+   "x": 86.72,
+   "y": 47.44
+  },
+  {
+   "label": "Osso temporal",
+   "x": 84.61,
+   "y": 61.64
+  },
+  {
+   "label": "Osso parietal",
+   "x": 84.67,
+   "y": 75.05
+  },
+  {
+   "label": "Osso occipital",
+   "x": 79.5,
+   "y": 86.0
+  }
+ ],
+ "01": [
+  {
+   "label": "Cérebro",
+   "x": 12.78,
+   "y": 59.17
+  },
+  {
+   "label": "Diencefalo",
+   "x": 24.94,
+   "y": 65.98
+  },
+  {
+   "label": "Mesencéfalo",
+   "x": 34.61,
+   "y": 72.78
+  },
+  {
+   "label": "Ponte",
+   "x": 30.17,
+   "y": 78.11
+  },
+  {
+   "label": "Bulbo",
+   "x": 30.67,
+   "y": 82.84
+  },
+  {
+   "label": "Cerebelo",
+   "x": 76.56,
+   "y": 68.05
+  },
+  {
+   "label": "Medula espinhal",
+   "x": 73.22,
+   "y": 86.88
   }
  ]
 }

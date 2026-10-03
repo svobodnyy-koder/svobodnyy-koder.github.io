@@ -141,7 +141,7 @@ const pageInfo = [
 const atlas = pageInfo.map((p,i)=>({num:String(i+1).padStart(2,'0'),title:p[0],topic:p[1],note:p[2],image:`prancha-${String(i+1).padStart(2,'0')}.jpg`}));
 let currentView='overview',activeTopic='all',activeLevel='all',questionIndex=0,answered=0,correct=0,selected=false;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-function showView(view){currentView=view;$$('.view').forEach(v=>v.classList.remove('active-view'));const target=$(`#${view}View`);if(target)target.classList.add('active-view');$$('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));const labels={overview:'Visão geral',practice:'Treino rápido',atlas:'Atlas visual',topics:'Tópicos'};if($('#breadcrumbCurrent'))$('#breadcrumbCurrent').textContent=labels[view]||view;window.scrollTo({top:0,behavior:'smooth'});if(view==='practice')renderQuestion();if(view==='game')startGameRound();}
+function showView(view){currentView=view;$$('.view').forEach(v=>v.classList.remove('active-view'));const target=$(`#${view}View`);if(target)target.classList.add('active-view');$$('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));const labels={overview:'Visão geral',practice:'Treino rápido',atlas:'Atlas visual',topics:'Tópicos',game:'Jogo de reconhecimento'};if($('#breadcrumbCurrent'))$('#breadcrumbCurrent').textContent=labels[view]||view;window.scrollTo({top:0,behavior:'smooth'});if(view==='practice')renderQuestion();if(view==='game')startGameRound();}
 function filteredQuestions(){return questions.filter(q=>(activeTopic==='all'||q.topic===activeTopic)&&(activeLevel==='all'||q.difficulty===activeLevel))}
 function clean(v){return v.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function renderQuestion(){const list=filteredQuestions();if(!list.length)return;if(questionIndex>=list.length)questionIndex=0;const q=list[questionIndex];selected=false;$('#questionCount').textContent=`QUESTÃO ${String(questionIndex+1).padStart(2,'0')} / ${String(list.length).padStart(2,'0')}`;$('#questionDifficulty').textContent=`NÍVEL · ${q.difficulty}`;$('#questionTag').textContent=q.tag;$('#questionText').textContent=q.text;$('#questionProgress').style.width=`${((questionIndex+1)/list.length)*100}%`;$('#feedback').textContent='';$('#feedback').className='feedback';const area=$('#answerArea');area.innerHTML='';if(q.type==='choice'){q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='answer-option';btn.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;btn.onclick=()=>checkAnswer(i===q.answer,btn,q.explain);area.appendChild(btn)})}else{area.innerHTML=`<div class="fill-answer"><input id="fillInput" placeholder="Digite sua resposta" autocomplete="off"/><button class="primary-button compact" id="checkFill">Conferir <span>✓</span></button></div>`;$('#checkFill').onclick=()=>checkAnswer(clean($('#fillInput').value)===clean(q.answerText),$('#checkFill'),q.explain);$('#fillInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('#checkFill').click()})}updateScore();}
@@ -168,116 +168,147 @@ function boot(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 
-/* === JOGO DE RECONHECIMENTO === */
-let gameState = { score: 0, streak: 0, currentPage: null, targetLabel: null, answered: false };
+/* === JOGO DE RECONHECIMENTO (digitar a resposta) === */
+const gamePages = () => Object.keys(window.HOTSPOTS || {}).filter(p => (window.HOTSPOTS[p] || []).length);
+const gameState = { score: 0, streak: 0, page: null, target: null, answered: false, rounds: 0, hits: 0 };
 
-function getAvailablePages() {
-  if (typeof window.HOTSPOTS === 'undefined') return [];
-  return Object.keys(window.HOTSPOTS).filter(p => window.HOTSPOTS[p].length > 0);
+function normalizeAnswer(s){
+  return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 }
 
-function startGameRound() {
-  const pages = getAvailablePages();
-  if (!pages.length) {
-    $('#gameTarget').textContent = 'Nenhum hotspot disponível';
-    return;
-  }
-  
-  // Pick random page
-  const page = pages[Math.floor(Math.random() * pages.length)];
-  const hotspots = window.HOTSPOTS[page];
-  
-  // Pick random target from this page
-  const target = hotspots[Math.floor(Math.random() * hotspots.length)];
-  
-  gameState.currentPage = page;
-  gameState.targetLabel = target.label;
-  gameState.answered = false;
-  
-  // Update UI
-  $('#gameTarget').textContent = target.label;
+function makeHint(label){
+  const words = String(label).split(/\s+/).filter(Boolean);
+  const masked = words.map((w,i)=> i===0 ? w.charAt(0).toUpperCase() + '•'.repeat(Math.max(2,w.length-1)) : '•'.repeat(Math.max(2,w.length)));
+  return masked.join(' ');
+}
+
+function startGameRound(pageNumber){
+  const pages = gamePages();
+  if(!pages.length){ $('#gameQuestion').textContent = 'Nenhuma prancha com rótulos foi encontrada.'; return; }
+  const page = pageNumber || pages[Math.floor(Math.random()*pages.length)];
+  const items = window.HOTSPOTS[page];
+  const target = items[Math.floor(Math.random()*items.length)];
+
+  gameState.page = page; gameState.target = target; gameState.answered = false; gameState.rounds++;
+
+  const pageMeta = (typeof pageInfo !== 'undefined') ? pageInfo[Number(page)-1] : null;
   $('#gameImage').src = `assets/prancha-${page}.jpg`;
-  $('#gameFeedback').classList.remove('show');
-  $('#gameFeedback').textContent = '';
-  $('#gameNext').style.display = 'none';
-  $('#gameSkip').style.display = 'inline-flex';
-  
-  // Render hotspots
-  const layer = $('#hotspotsLayer');
-  layer.innerHTML = '';
-  
-  hotspots.forEach(h => {
-    const btn = document.createElement('button');
-    btn.className = 'hotspot-btn';
-    btn.style.left = h.x + '%';
-    btn.style.top = h.y + '%';
-    btn.dataset.label = h.label;
-    btn.title = 'Clique aqui';
-    btn.onclick = () => checkHotspot(btn, h.label);
-    layer.appendChild(btn);
-  });
-}
+  $('#gameImage').alt = pageMeta ? `Prancha ${page}: ${pageMeta[0]}` : `Prancha ${page}`;
+  $('#gamePranchaNote').textContent = pageMeta ? `${pageMeta[0]} · ${pageMeta[1]}` : `Prancha ${page}`;
+  $('#gameQuestion').textContent = 'O que aponta a marca na imagem?';
+  const marker = $('#gameMarker');
+  marker.style.left = target.x + '%';
+  marker.style.top = target.y + '%';
+  marker.classList.remove('hit','miss');
+  marker.classList.add('active');
 
-function checkHotspot(btn, clickedLabel) {
-  if (gameState.answered) return;
-  
-  const isCorrect = clickedLabel === gameState.targetLabel;
   const feedback = $('#gameFeedback');
-  
-  if (isCorrect) {
-    gameState.answered = true;
-    gameState.score += 10 + (gameState.streak * 2);
-    gameState.streak++;
-    btn.classList.add('correct');
-    feedback.textContent = `Correto! +${10 + ((gameState.streak - 1) * 2)} pts`;
-    feedback.classList.add('show');
-    $('#gameNext').style.display = 'inline-flex';
-    $('#gameSkip').style.display = 'none';
-    updateGameScore();
-  } else {
-    btn.classList.add('incorrect');
-    gameState.streak = 0;
-    feedback.textContent = 'Errado, tente novamente!';
-    feedback.classList.add('show');
-    updateGameScore();
-    setTimeout(() => {
-      btn.classList.remove('incorrect');
-      feedback.classList.remove('show');
-    }, 800);
-  }
+  feedback.textContent = ''; feedback.className = 'game-feedback';
+  const result = $('#gameResult');
+  result.textContent = ''; result.className = 'game-result';
+  $('#gameInput').value = '';
+  $('#gameInput').disabled = false;
+  $('#gameNext').style.display = 'none';
+  updateGameScore();
+  renderGamePageTabs(pages, page);
 }
 
-function revealAnswer() {
-  if (gameState.answered) return;
+function renderGamePageTabs(pages, activePage){
+  const tabs = $('#gamePageTabs');
+  tabs.innerHTML = pages.map(p=>`<button class="${p===activePage?'selected':''}" data-game-page="${p}">${p}</button>`).join('');
+  tabs.querySelectorAll('[data-game-page]').forEach(b=>b.addEventListener('click',()=>startGameRound(b.dataset.gamePage)));
+}
+
+function checkGameAnswer(){
+  if(gameState.answered || !gameState.target) return;
+  const typed = normalizeAnswer($('#gameInput').value);
+  if(!typed){ setGameFeedback('Digite uma resposta antes de verificar.', 'warn'); return; }
+  const expected = normalizeAnswer(gameState.target.label);
+  gameState.answered = true;
+  $('#gameInput').disabled = true;
+  const marker = $('#gameMarker');
+  const result = $('#gameResult');
+
+  const exact = typed === expected;
+  const partial = !exact && (typed.includes(expected) || expected.includes(typed));
+
+  if(exact){
+    gameState.streak++;
+    gameState.score += 10 + (gameState.streak - 1) * 2;
+    gameState.hits++;
+    marker.classList.remove('active'); marker.classList.add('hit');
+    setGameFeedback(`Correto! ${gameState.target.label}`, 'good');
+    result.innerHTML = `<strong>✓ Resposta correta</strong><span>+${10 + (gameState.streak-1)*2} pontos</span>`;
+    result.className = 'game-result good';
+  } else if(partial){
+    marker.classList.remove('active'); marker.classList.add('hit');
+    setGameFeedback(`Quase! A resposta é ${gameState.target.label}.`, 'warn');
+    result.innerHTML = `<strong>≈ Resposta parcial</strong><span>A completa é ${gameState.target.label}</span>`;
+    result.className = 'game-result warn';
+  } else {
+    gameState.streak = 0;
+    marker.classList.remove('active'); marker.classList.add('miss');
+    setGameFeedback(`Não é essa. A resposta é ${gameState.target.label}.`, 'bad');
+    result.innerHTML = `<strong>✕ Não confere</strong><span>A resposta é ${gameState.target.label}</span>`;
+    result.className = 'game-result bad';
+  }
+  $('#gameNext').style.display = 'inline-flex';
+  updateGameScore();
+}
+
+function setGameFeedback(text, kind){
+  const f = $('#gameFeedback');
+  f.textContent = text;
+  f.className = 'game-feedback show' + (kind ? ' '+kind : '');
+}
+
+function giveGameHint(){
+  if(!gameState.target || gameState.answered) return;
+  const hintEl = $('#gameResult');
+  hintEl.innerHTML = `<strong>✦ Dica</strong><span>${makeHint(gameState.target.label)} — começa com “${gameState.target.label.charAt(0).toUpperCase()}” e tem ${gameState.target.label.split(/\s+/).length} palavra(s)</span>`;
+  hintEl.className = 'game-result hint';
+  setGameFeedback('Dica exibida. Tente escrever a resposta.', '');
+  $('#gameInput').focus();
+}
+
+function revealGameAnswer(){
+  if(!gameState.target || gameState.answered) return;
   gameState.answered = true;
   gameState.streak = 0;
-  updateGameScore();
-  
-  const btns = $$('.hotspot-btn');
-  btns.forEach(b => {
-    if (b.dataset.label === gameState.targetLabel) {
-      b.classList.add('reveal');
-    }
-  });
-  
-  const feedback = $('#gameFeedback');
-  feedback.textContent = `A resposta era: ${gameState.targetLabel}`;
-  feedback.classList.add('show');
+  $('#gameInput').disabled = true;
+  const marker = $('#gameMarker');
+  marker.classList.remove('active'); marker.classList.add('reveal');
+  setGameFeedback(`A resposta é ${gameState.target.label}.`, 'warn');
+  const result = $('#gameResult');
+  result.innerHTML = `<strong>◎ Resposta</strong><span>${gameState.target.label}</span>`;
+  result.className = 'game-result warn';
   $('#gameNext').style.display = 'inline-flex';
-  $('#gameSkip').style.display = 'none';
+  updateGameScore();
 }
 
-function updateGameScore() {
+function skipGameRound(){
+  if(!gameState.target) return;
+  gameState.streak = 0;
+  startGameRound();
+}
+
+function updateGameScore(){
   $('#gameScore').textContent = gameState.score;
-  $('#gameStreak').textContent = gameState.streak + ' seguidos';
+  $('#gameStreak').textContent = gameState.streak + (gameState.streak === 1 ? ' seguida' : ' seguidos');
+  const acc = gameState.rounds ? Math.round((gameState.hits / gameState.rounds) * 100) : 0;
+  const accuracy = $('#gameAccuracy');
+  if(accuracy) accuracy.textContent = `${acc}% de acerto em ${gameState.rounds} rodada(s)`;
 }
 
-// Init game listeners inside boot()
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initGame); else initGame();
 
-// Initialize game controls immediately
-(function() {
-  const skipBtn = document.getElementById('gameSkip');
-  const nextBtn = document.getElementById('gameNext');
-  if (skipBtn) skipBtn.addEventListener('click', revealAnswer);
-  if (nextBtn) nextBtn.addEventListener('click', startGameRound);
-})();
+function initGame(){
+  const input = $('#gameInput');
+  if(input) input.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); checkGameAnswer(); } });
+  const verify = $('#gameVerify'); if(verify) verify.addEventListener('click', checkGameAnswer);
+  const hint = $('#gameHint'); if(hint) hint.addEventListener('click', giveGameHint);
+  const reveal = $('#gameReveal'); if(reveal) reveal.addEventListener('click', revealGameAnswer);
+  const skip = $('#gameSkip'); if(skip) skip.addEventListener('click', skipGameRound);
+  const next = $('#gameNext'); if(next) next.addEventListener('click', () => startGameRound());
+}

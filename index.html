@@ -74,34 +74,51 @@
       
         <!-- Game View Section (inserted before closing main) -->
 <section class="view" id="gameView">
-  <div class="page-heading">
-    <div>
-      <div class="eyebrow"><span></span> JOGO DE RECONHECIMENTO</div>
-      <h1>Encontre a <em>estrutura.</em></h1>
-      <p>Clique no ponto correto da imagem para identificar a estrutura solicitada.</p>
-    </div>
-    <div class="score-pill">
-      <span>PONTUAÇÃO</span>
-      <strong id="gameScore">0</strong>
-      <small id="gameStreak">0 seguidos</small>
-    </div>
-  </div>
-  <div class="game-container">
-    <div class="game-prompt">
-      <span class="prompt-label">ENCONTRE:</span>
-      <h2 id="gameTarget">Carregando...</h2>
-    </div>
-    <div class="game-image-wrap" id="gameImageWrap">
-      <img id="gameImage" src="" alt="Prancha de anatomia" />
-      <div class="hotspots-layer" id="hotspotsLayer"></div>
-      <div class="game-feedback" id="gameFeedback"></div>
-    </div>
-    <div class="game-controls">
-      <button class="ghost-button" id="gameSkip">Pular <span>→</span></button>
-      <button class="primary-button" id="gameNext" style="display:none;">Próxima <span>→</span></button>
-    </div>
-  </div>
-</section>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span></span> JOGO DE RECONHECIMENTO</div>
+              <h1>Nomeie a <em>estrutura.</em></h1>
+              <p>Escreva o nome da estrutura marcada na imagem e confirme com Enter ou no botão Verificar.</p>
+            </div>
+            <div class="score-pill">
+              <span>PONTUAÇÃO</span>
+              <strong id="gameScore">0</strong>
+              <small id="gameStreak">0 seguidos</small>
+            </div>
+          </div>
+          <div class="game-toolbar">
+            <span class="filter-label">PRANCHA</span>
+            <div class="topic-tabs" id="gamePageTabs"></div>
+          </div>
+          <div class="game-container">
+            <div class="game-stage">
+              <div class="game-image-wrap" id="gameImageWrap">
+                <img id="gameImage" src="" alt="Prancha de anatomia" />
+                <div class="game-marker" id="gameMarker" aria-hidden="true"><i></i></div>
+                <div class="game-feedback" id="gameFeedback"></div>
+              </div>
+              <div class="game-side">
+                <div class="game-prompt">
+                  <span class="prompt-label">O QUE APONTA AQUI?</span>
+                  <h2 id="gameQuestion">Carregando…</h2>
+                  <p class="game-prancha-note" id="gamePranchaNote"></p>
+                  <p class="game-prancha-note" id="gameAccuracy">0% de acerto em 0 rodada(s)</p>
+                </div>
+                <div class="game-answer-area">
+                  <input id="gameInput" type="text" placeholder="Digite o nome da estrutura…" autocomplete="off" spellcheck="false" />
+                  <button class="primary-button compact" id="gameVerify">Verificar <span>✓</span></button>
+                </div>
+                <div class="game-controls">
+                  <button class="ghost-button" id="gameHint">Dica <span>✦</span></button>
+                  <button class="ghost-button" id="gameReveal">Mostrar resposta <span>◎</span></button>
+                  <button class="ghost-button" id="gameSkip">Pular <span>→</span></button>
+                </div>
+                <div class="game-result" id="gameResult" aria-live="polite"></div>
+                <button class="primary-button game-next" id="gameNext">Próxima prancha <span>→</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
     <div class="toast" id="toast"></div>
