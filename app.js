@@ -141,7 +141,7 @@ const pageInfo = [
 const atlas = pageInfo.map((p,i)=>({num:String(i+1).padStart(2,'0'),title:p[0],topic:p[1],note:p[2],image:`prancha-${String(i+1).padStart(2,'0')}.jpg`}));
 let currentView='overview',activeTopic='all',activeLevel='all',questionIndex=0,answered=0,correct=0,selected=false;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-function showView(view){currentView=view;$$('.view').forEach(v=>v.classList.remove('active-view'));const target=$(`#${view}View`);if(target)target.classList.add('active-view');$$('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));const labels={overview:'Visão geral',practice:'Treino rápido',atlas:'Atlas visual',topics:'Tópicos'};if($('#breadcrumbCurrent'))$('#breadcrumbCurrent').textContent=labels[view]||view;window.scrollTo({top:0,behavior:'smooth'});if(view==='practice')renderQuestion();}
+function showView(view){currentView=view;$$('.view').forEach(v=>v.classList.remove('active-view'));const target=$(`#${view}View`);if(target)target.classList.add('active-view');$$('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));const labels={overview:'Visão geral',practice:'Treino rápido',atlas:'Atlas visual',topics:'Tópicos'};if($('#breadcrumbCurrent'))$('#breadcrumbCurrent').textContent=labels[view]||view;window.scrollTo({top:0,behavior:'smooth'});if(view==='practice')renderQuestion();if(view==='game')startGameRound();}
 function filteredQuestions(){return questions.filter(q=>(activeTopic==='all'||q.topic===activeTopic)&&(activeLevel==='all'||q.difficulty===activeLevel))}
 function clean(v){return v.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function renderQuestion(){const list=filteredQuestions();if(!list.length)return;if(questionIndex>=list.length)questionIndex=0;const q=list[questionIndex];selected=false;$('#questionCount').textContent=`QUESTÃO ${String(questionIndex+1).padStart(2,'0')} / ${String(list.length).padStart(2,'0')}`;$('#questionDifficulty').textContent=`NÍVEL · ${q.difficulty}`;$('#questionTag').textContent=q.tag;$('#questionText').textContent=q.text;$('#questionProgress').style.width=`${((questionIndex+1)/list.length)*100}%`;$('#feedback').textContent='';$('#feedback').className='feedback';const area=$('#answerArea');area.innerHTML='';if(q.type==='choice'){q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='answer-option';btn.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;btn.onclick=()=>checkAnswer(i===q.answer,btn,q.explain);area.appendChild(btn)})}else{area.innerHTML=`<div class="fill-answer"><input id="fillInput" placeholder="Digite sua resposta" autocomplete="off"/><button class="primary-button compact" id="checkFill">Conferir <span>✓</span></button></div>`;$('#checkFill').onclick=()=>checkAnswer(clean($('#fillInput').value)===clean(q.answerText),$('#checkFill'),q.explain);$('#fillInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('#checkFill').click()})}updateScore();}
@@ -273,22 +273,11 @@ function updateGameScore() {
 }
 
 // Init game listeners inside boot()
-const originalBoot = boot;
-boot = function() {
-  originalBoot();
-  
-  // Game navigation
-  const gameNav = document.querySelector('[data-view="game"]');
-  if (gameNav) {
-    gameNav.addEventListener('click', () => {
-      setTimeout(startGameRound, 100);
-    });
-  }
-  
-  // Game controls
-  const skipBtn = $('#gameSkip');
-  const nextBtn = $('#gameNext');
-  
+
+// Initialize game controls immediately
+(function() {
+  const skipBtn = document.getElementById('gameSkip');
+  const nextBtn = document.getElementById('gameNext');
   if (skipBtn) skipBtn.addEventListener('click', revealAnswer);
   if (nextBtn) nextBtn.addEventListener('click', startGameRound);
-};
+})();
