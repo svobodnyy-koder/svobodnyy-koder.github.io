@@ -25,6 +25,7 @@
           <button class="nav-item" data-view="practice"><span class="nav-icon">✦</span> Treino rápido <b>115</b></button>
           <button class="nav-item" data-view="atlas"><span class="nav-icon">◌</span> Atlas visual</button>
           <button class="nav-item" data-view="topics"><span class="nav-icon">▦</span> Tópicos</button>
+          <button class="nav-item" data-view="game"><span class="nav-icon">◎</span> Jogo de reconhecimento</button>
         </nav>
         <div class="sidebar-bottom">
           <div class="streak-card"><span class="flame">✦</span><div><strong>49 pranchas</strong><small>no atlas visual</small></div><span class="spark">↗</span></div>
@@ -70,6 +71,37 @@
         <section class="view" id="atlasView"><div class="page-heading"><div><div class="eyebrow"><span></span> ATLAS VISUAL</div><h1>Veja. <em>Nomeie.</em> Lembre.</h1><p>As imagens principais do material organizadas para revisão rápida.</p></div><div class="atlas-tools"><label class="atlas-search">⌕<input id="atlasSearch" placeholder="Buscar estrutura ou página" /></label><div class="filter-select">49 pranchas <span>⌄</span></div></div></div><div class="atlas-grid" id="atlasGrid"></div></section>
 
         <section class="view" id="topicsView"><div class="page-heading"><div><div class="eyebrow"><span></span> MAPA DO CONTEÚDO</div><h1>Escolha um <em>território.</em></h1><p>Avance por blocos curtos e conecte estruturas.</p></div></div><div class="topic-grid"><button class="topic-large coral-topic" data-view="practice" data-topic="cranium"><span>01</span><strong>Crânio & face</strong><small>forames, temporal, esfenoide</small><i>revisão guiada</i></button><button class="topic-large teal-topic" data-view="practice" data-topic="spine"><span>02</span><strong>Coluna vertebral</strong><small>curvaturas, vértebras, ligamentos</small><i>revisão guiada</i></button><button class="topic-large dark-topic" data-view="practice" data-topic="neuro"><span>03</span><strong>Neuroeixo</strong><small>medula, meninges, cerebelo</small><i>revisão guiada</i></button><button class="topic-large yellow-topic" data-view="practice" data-topic="vessels"><span>04</span><strong>Vascularização</strong><small>vertebrobasilar, Willis, liquor</small><i>revisão guiada</i></button></div></section>
+      
+        <!-- Game View Section (inserted before closing main) -->
+<section class="view" id="gameView">
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow"><span></span> JOGO DE RECONHECIMENTO</div>
+      <h1>Encontre a <em>estrutura.</em></h1>
+      <p>Clique no ponto correto da imagem para identificar a estrutura solicitada.</p>
+    </div>
+    <div class="score-pill">
+      <span>PONTUAÇÃO</span>
+      <strong id="gameScore">0</strong>
+      <small id="gameStreak">0 seguidos</small>
+    </div>
+  </div>
+  <div class="game-container">
+    <div class="game-prompt">
+      <span class="prompt-label">ENCONTRE:</span>
+      <h2 id="gameTarget">Carregando...</h2>
+    </div>
+    <div class="game-image-wrap" id="gameImageWrap">
+      <img id="gameImage" src="" alt="Prancha de anatomia" />
+      <div class="hotspots-layer" id="hotspotsLayer"></div>
+      <div class="game-feedback" id="gameFeedback"></div>
+    </div>
+    <div class="game-controls">
+      <button class="ghost-button" id="gameSkip">Pular <span>→</span></button>
+      <button class="primary-button" id="gameNext" style="display:none;">Próxima <span>→</span></button>
+    </div>
+  </div>
+</section>
       </main>
     </div>
     <div class="toast" id="toast"></div>
@@ -81,6 +113,8 @@
         <div class="modal-copy"><span class="section-kicker" id="modalPage">PRANCHA 01 / 49</span><h2 id="modalTitle">Sistema nervoso central</h2><p id="modalNote"></p><div class="modal-nav"><button id="modalPrev">← Anterior</button><button id="modalNext">Próxima →</button></div></div>
       </article>
     </div>
+    <script src="hotspots.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+

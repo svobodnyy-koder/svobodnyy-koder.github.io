@@ -167,3 +167,128 @@ function boot(){
   $('#atlasSearch').addEventListener('input',e=>renderAtlas(e.target.value));$$('[data-close-modal]').forEach(el=>el.addEventListener('click',closeAtlas));$('#modalPrev').addEventListener('click',()=>moveAtlas(-1));$('#modalNext').addEventListener('click',()=>moveAtlas(1));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAtlas();if($('#atlasModal').classList.contains('open')&&e.key==='ArrowRight')moveAtlas(1);if($('#atlasModal').classList.contains('open')&&e.key==='ArrowLeft')moveAtlas(-1)});renderAtlas();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+
+/* === JOGO DE RECONHECIMENTO === */
+let gameState = { score: 0, streak: 0, currentPage: null, targetLabel: null, answered: false };
+
+function getAvailablePages() {
+  if (typeof window.HOTSPOTS === 'undefined') return [];
+  return Object.keys(window.HOTSPOTS).filter(p => window.HOTSPOTS[p].length > 0);
+}
+
+function startGameRound() {
+  const pages = getAvailablePages();
+  if (!pages.length) {
+    $('#gameTarget').textContent = 'Nenhum hotspot disponível';
+    return;
+  }
+  
+  // Pick random page
+  const page = pages[Math.floor(Math.random() * pages.length)];
+  const hotspots = window.HOTSPOTS[page];
+  
+  // Pick random target from this page
+  const target = hotspots[Math.floor(Math.random() * hotspots.length)];
+  
+  gameState.currentPage = page;
+  gameState.targetLabel = target.label;
+  gameState.answered = false;
+  
+  // Update UI
+  $('#gameTarget').textContent = target.label;
+  $('#gameImage').src = `assets/prancha-${page}.jpg`;
+  $('#gameFeedback').classList.remove('show');
+  $('#gameFeedback').textContent = '';
+  $('#gameNext').style.display = 'none';
+  $('#gameSkip').style.display = 'inline-flex';
+  
+  // Render hotspots
+  const layer = $('#hotspotsLayer');
+  layer.innerHTML = '';
+  
+  hotspots.forEach(h => {
+    const btn = document.createElement('button');
+    btn.className = 'hotspot-btn';
+    btn.style.left = h.x + '%';
+    btn.style.top = h.y + '%';
+    btn.dataset.label = h.label;
+    btn.title = 'Clique aqui';
+    btn.onclick = () => checkHotspot(btn, h.label);
+    layer.appendChild(btn);
+  });
+}
+
+function checkHotspot(btn, clickedLabel) {
+  if (gameState.answered) return;
+  
+  const isCorrect = clickedLabel === gameState.targetLabel;
+  const feedback = $('#gameFeedback');
+  
+  if (isCorrect) {
+    gameState.answered = true;
+    gameState.score += 10 + (gameState.streak * 2);
+    gameState.streak++;
+    btn.classList.add('correct');
+    feedback.textContent = `Correto! +${10 + ((gameState.streak - 1) * 2)} pts`;
+    feedback.classList.add('show');
+    $('#gameNext').style.display = 'inline-flex';
+    $('#gameSkip').style.display = 'none';
+    updateGameScore();
+  } else {
+    btn.classList.add('incorrect');
+    gameState.streak = 0;
+    feedback.textContent = 'Errado, tente novamente!';
+    feedback.classList.add('show');
+    updateGameScore();
+    setTimeout(() => {
+      btn.classList.remove('incorrect');
+      feedback.classList.remove('show');
+    }, 800);
+  }
+}
+
+function revealAnswer() {
+  if (gameState.answered) return;
+  gameState.answered = true;
+  gameState.streak = 0;
+  updateGameScore();
+  
+  const btns = $$('.hotspot-btn');
+  btns.forEach(b => {
+    if (b.dataset.label === gameState.targetLabel) {
+      b.classList.add('reveal');
+    }
+  });
+  
+  const feedback = $('#gameFeedback');
+  feedback.textContent = `A resposta era: ${gameState.targetLabel}`;
+  feedback.classList.add('show');
+  $('#gameNext').style.display = 'inline-flex';
+  $('#gameSkip').style.display = 'none';
+}
+
+function updateGameScore() {
+  $('#gameScore').textContent = gameState.score;
+  $('#gameStreak').textContent = gameState.streak + ' seguidos';
+}
+
+// Init game listeners inside boot()
+const originalBoot = boot;
+boot = function() {
+  originalBoot();
+  
+  // Game navigation
+  const gameNav = document.querySelector('[data-view="game"]');
+  if (gameNav) {
+    gameNav.addEventListener('click', () => {
+      setTimeout(startGameRound, 100);
+    });
+  }
+  
+  // Game controls
+  const skipBtn = $('#gameSkip');
+  const nextBtn = $('#gameNext');
+  
+  if (skipBtn) skipBtn.addEventListener('click', revealAnswer);
+  if (nextBtn) nextBtn.addEventListener('click', startGameRound);
+};
