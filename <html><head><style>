@@ -1,0 +1,44 @@
+import json, subprocess, os
+from pathlib import Path
+
+# Load current hotspots
+hotspots = json.loads(Path('hotspots.json').read_text())
+
+# Create verification HTML that overlays markers on images
+verify_html = '''<!DOCTYPE html>
+<html><head><style>
+body { margin: 0; background: #111; }
+.page { position: relative; display: inline-block; margin: 20px; border: 2px solid #fff; }
+.page img { display: block; max-width: 900px; }
+.marker { position: absolute; width: 20px; height: 20px; background: rgba(255,0,0,0.7); border: 2px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+.label { position: absolute; background: rgba(0,0,0,0.8); color: #fff; padding: 2px 6px; font-size: 11px; border-radius: 3px; white-space: nowrap; transform: translate(-50%, -100%); margin-top: -10px; }
+</style></head><body>
+'''
+
+for page in sorted(hotspots.keys()):
+    items = hotspots[page]
+    verify_html += f'<div class="page"><img src="assets/prancha-{page}.jpg" alt="Page {page}">'
+    for item in items:
+        x, y = item['x'], item['y']
+        label = item['label']
+        verify_html += f'<div class="marker" style="left:{x}%;top:{y}%"></div>'
+        verify_html += f'<div class="label" style="left:{x}%;top:{y}%">{label}</div>'
+    verify_html += '</div>\n'
+
+verify_html += '</body></html>'
+
+Path('/tmp/verify_hotspots.html').write_text(verify_html)
+print(f"Created verification HTML with {len(hotspots)} pages")
+
+# Use Chrome headless to screenshot
+chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+result = subprocess.run([
+    chrome, "--headless", "--disable-gpu", "--screenshot=/tmp/verify_hotspots.png",
+    "--window-size=1200,8000", "file:///tmp/verify_hotspots.html"
+], capture_output=True, text=True, timeout=30)
+
+if result.returncode == 0 and Path('/tmp/verify_hotspots.png').exists():
+    print("Screenshot created successfully")
+    print(f"Size: {Path('/tmp/verify_hotspots.png').stat().st_size} bytes")
+else:
+    print("Chrome error:", result.stderr[:500])
